@@ -25,7 +25,7 @@ SECRET_KEY = '+=ci=p31gb_3584!=tix@6+)g-52yem)ydk7=dhb+c72hd#bgo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [https://ikp-database.herokuapp.com/]
 
 
 # Application definition
