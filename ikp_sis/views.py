@@ -8,7 +8,7 @@ from .models import StudentInfo
 
 
 def student_list(request):
-    students = StudentInfo.objects.order_by('created_date')
+    students = StudentInfo.objects.order_by('pk')
     return render(request, 'student_list.html', {'students': students})
 
 
