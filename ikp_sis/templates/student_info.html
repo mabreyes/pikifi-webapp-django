@@ -1,0 +1,81 @@
+{% extends 'base.html' %} {% block content %}
+<title>{{ student.family_name }}, {{ student.first_name }} &mdash; Island Kids Philippines</title>
+<div class="jumbotron">
+    <div class="row">
+        <div class='col-sm-4'>
+            <div class="card">
+                <img src="/media/{{ student.profile_image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Last edited by <strong>{{ student.author }}</strong> on
+                        <strong>{{ student.created_date }}</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-8'>
+            <h1>{{ student.family_name }}</h1>
+            <h3 style="color: #6c757d;">{{ student.first_name }}</h2>
+                <p>{{ student.student_bio }}</p>
+                <a class="btn btn-lg btn-secondary" href="edit/" role="button" style="margin-right: 10px;">
+                    <i class="fas fa-pen" style='margin-right: 20px;'></i>Edit Details</a>
+                <a class="btn btn-lg btn-danger" href="delete/" role="button">
+                    <i class="fas fa-user-minus" style='margin-right: 20px;'></i>Remove Record</a>
+        </div>
+    </div>
+</div>
+<h2>
+    Personal Information
+    <small class="text-muted">Basic Student Details</small>
+</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Complete Name</th>
+            <td>{{ student.family_name }}, {{ student.first_name }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Gender</th>
+            <td>{{ student.gender }}</td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    Educational History
+    <small class="text-muted">Student Education-related Records</small>
+</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">School Last Attended</th>
+            <td>{{ student.school_last_attended }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Current School</th>
+            <td>{{ student.school_current }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Grade/Year Level</th>
+            <td>{{ student.level }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Promotional Status</th>
+            <td>{{ student.educational_status }}</td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    IKP Registration Information
+    <small class="text-muted">Admittance and Sponsorship Details</small>
+</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">IKP Enrollment Date</th>
+            <td>{{ student.date_ikp_enrollment }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Sponsor's Name</th>
+            <td>{{ student.sponsors_name }}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
