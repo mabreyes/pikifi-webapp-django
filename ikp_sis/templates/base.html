@@ -13,40 +13,45 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'font_awesome/css/all.css' %}" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/navbar-top-fixed.css' %}" rel="stylesheet">
 
 </head>
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="/">Island Kids Philippines, Inc</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-            </ul>
-            {% if user.is_authenticated %}
-            <div class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Signed in as <strong>{{ user }}</strong>
-                </a>
+        <div class="container">
+            <a class="navbar-brand" href="/">Philippine Island Kids International Foundation Database</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                {% if user.is_authenticated %}
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Signed in as <strong>{{ user }}</strong>
+                    </a>
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="/admin">Settings</a>
-                    <a class="dropdown-item" href="/admin/logout/?next=/">Sign Out</a>
-                    {% endif %}
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/admin">Settings</a>
+                        <a class="dropdown-item" href="/admin/logout/?next=/">Sign Out</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <main role="main" class="container">
+    <main role="main" class="container" style="margin-top: 5em;">
         {% block content %} {% endblock %}
     </main>
+
+    <footer class="container" style="margin-top: 3em; margin-bottom: 3em;">
+        &copy; 2019 Philippine Island Kids International Foundation Database. Developed by <a
+            href="https://marcreyes.ph/">Marc Anthony Reyes</a>.
+    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
