@@ -2,9 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .forms import ProfileForm
 from .models import StudentInfo
+
+# @login_required(login_url='/accounts/login/')
 
 
 def student_list(request):
@@ -12,11 +15,13 @@ def student_list(request):
     return render(request, 'student_list.html', {'students': students})
 
 
+@login_required(login_url='/admin/login/?next=/')
 def student_detail(request, pk):
     student = get_object_or_404(StudentInfo, pk=pk)
     return render(request, 'student_info.html', {'student': student})
 
 
+@login_required(login_url='/admin/login/?next=/')
 def student_new(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
@@ -34,6 +39,7 @@ def student_new(request):
     return render(request, 'student_edit.html', {'form': form})
 
 
+@login_required(login_url='/admin/login/?next=/')
 def student_edit(request, pk):
     student = get_object_or_404(StudentInfo, pk=pk)
     if request.method == "POST":
@@ -51,6 +57,7 @@ def student_edit(request, pk):
     return render(request, 'student_edit.html', {'form': form})
 
 
+@login_required(login_url='/admin/login/?next=/')
 def student_delete(request, pk):
     student = get_object_or_404(StudentInfo, pk=pk)
 
