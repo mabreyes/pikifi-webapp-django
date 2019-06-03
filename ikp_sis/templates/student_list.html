@@ -18,13 +18,15 @@
     {% endif %}
 </div>
 {% if user.is_authenticated %}
-<table class="table table-striped">
+<table class="table table-striped" id="myTable">
     <thead>
-        <th colspan="2">Student Name</th>
-        <th>Gender</th>
-        <th>Level</th>
-        <th>Educational Status</th>
-        <th colspan="3">Actions</th>
+        <tr>
+            <th colspan="2">Student Name</th>
+            <th>Gender</th>
+            <th>Level</th>
+            <th>Educational Status</th>
+            <th colspan="3">Actions</th>
+        </tr>
     </thead>
     <tbody>
         {% for student in students %}
