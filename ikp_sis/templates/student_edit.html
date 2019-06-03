@@ -42,6 +42,15 @@
         <div class="col-sm-4">{{ form.level }}</div>
     </div>
     <div class="form-group row">
+        {{ form.section.errors }}
+        <label for="{{ form.section.id_for_label }}" class="col-sm-2 col-form-label">Section</label>
+        <div class="col-sm-4">{{ form.section }}</div>
+        {{ form.course.errors }}
+        <label for="{{ form.course.id_for_label }}" id="course_select_label"
+            class="col-sm-2 col-form-label">Course</label>
+        <div class="col-sm-4" id="course_select_form">{{ form.course }}</div>
+    </div>
+    <div class="form-group row">
         {{ form.school_last_attended.errors }}
         <label for="{{ form.school_last_attended.id_for_label }}" class="col-sm-2 col-form-label">School Last
             Attended</label>
@@ -78,6 +87,34 @@
     </div>
 
 </form>
-<script>
+<script type="text/javascript">
+    document.getElementById('course_select_form').style.visibility = 'hidden';
+    document.getElementById('course_select_label').style.visibility = 'hidden';
+
+    select_level = document.getElementById('{{ form.level.id_for_label }}');
+
+    select_level.onchange = appearCourse;
+
+    console.log(select_level.value);
+
+    if (select_level.value == 'First Year College' || select_level.value == 'Second Year College' || select_level.value == 'Third Year College' || select_level.value == 'Fourth Year College') {
+        document.getElementById('course_select_form').style.visibility = 'visible';
+        document.getElementById('course_select_label').style.visibility = 'visible';
+    } else {
+        document.getElementById('course_select_form').style.visibility = 'hidden';
+        document.getElementById('course_select_label').style.visibility = 'hidden';
+    }
+
+    function appearCourse() {
+        if (select_level.value == 'First Year College' || select_level.value == 'Second Year College' || select_level.value == 'Third Year College' || select_level.value == 'Fourth Year College') {
+            document.getElementById('course_select_form').style.visibility = 'visible';
+            document.getElementById('course_select_label').style.visibility = 'visible';
+        } else {
+            document.getElementById('course_select_form').style.visibility = 'hidden';
+            document.getElementById('course_select_label').style.visibility = 'hidden';
+        }
+        console.log(select_level.value);
+    }
+
 </script>
 {% endblock %}
