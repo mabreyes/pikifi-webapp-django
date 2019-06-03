@@ -57,6 +57,18 @@
             <th scope="row">Grade/Year Level</th>
             <td>{{ student.level }}</td>
         </tr>
+        {% if student.section != 'Not Applicable' %}
+        <tr>
+            <th scope="row">Section</th>
+            <td>{{ student.section }}</td>
+        </tr>
+        {% endif %}
+        {% if student.course != 'None' %}
+        <tr>
+            <th scope="row">Course</th>
+            <td>{{ student.course }}</td>
+        </tr>
+        {% endif %}
         <tr>
             <th scope="row">Promotional Status</th>
             <td>{{ student.educational_status }}</td>

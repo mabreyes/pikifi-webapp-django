@@ -95,8 +95,6 @@
 
     select_level.onchange = appearCourse;
 
-    console.log(select_level.value);
-
     if (select_level.value == 'First Year College' || select_level.value == 'Second Year College' || select_level.value == 'Third Year College' || select_level.value == 'Fourth Year College') {
         document.getElementById('course_select_form').style.visibility = 'visible';
         document.getElementById('course_select_label').style.visibility = 'visible';
@@ -113,8 +111,6 @@
             document.getElementById('course_select_form').style.visibility = 'hidden';
             document.getElementById('course_select_label').style.visibility = 'hidden';
         }
-        console.log(select_level.value);
     }
-
 </script>
 {% endblock %}
