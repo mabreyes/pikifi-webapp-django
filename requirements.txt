@@ -3,4 +3,5 @@ gunicorn
 django-heroku
 dj-database-url
 whitenoise
+pandas
 Pillow
