@@ -7,8 +7,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
 from .models import StudentInfo
 
-# @login_required(login_url='/accounts/login/')
-
 
 def student_list(request):
     students = StudentInfo.objects.order_by('pk')

@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# seconds until pw expires, this example shows five days
+ACCOUNT_PASSWORD_EXPIRY = 60*60*24*5
+ACCOUNT_PASSWORD_USE_HISTORY = True
 
 # Application definition
 
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'account.middleware.ExpiredPasswordMiddleware',
 ]
 
 ROOT_URLCONF = 'ikp_database.urls'
