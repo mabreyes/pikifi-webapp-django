@@ -96,11 +96,11 @@ class StudentInfo(models.Model):
     section = models.CharField(max_length=100, default='Not Applicable')
     course = models.CharField(
         max_length=100, default='None', choices=COURSE_CHOICES)
-    school_last_attended = models.CharField(max_length=200)
-    school_current = models.CharField(max_length=200)
-    date_ikp_enrollment = models.DateField()
-    sponsors_name = models.CharField(max_length=100)
-    student_bio = models.TextField()
+    school_last_attended = models.CharField(max_length=200, default='None')
+    school_current = models.CharField(max_length=200, default='None')
+    date_ikp_enrollment = models.DateField(default=timezone.now)
+    sponsors_name = models.CharField(max_length=100, default='None')
+    student_bio = models.TextField(default='Add a description')
     educational_status = models.CharField(max_length=100,
                                           default='None', choices=PROMOTION_CHOICES)
     created_date = models.DateTimeField(default=timezone.now)
