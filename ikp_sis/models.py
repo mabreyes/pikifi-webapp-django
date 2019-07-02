@@ -356,6 +356,14 @@ COURSE_CHOICES = [
     )),
 ]
 
+CIVIL_STATUS_CHOICES = [
+    ('Married', 'Married'),
+    ('Separated', 'Separated'),
+    ('Widow/Widower', 'Widow/Widower'),
+    ('Solo', 'Solo'),
+    ('Common Law', 'Common Law'),
+]
+
 
 class StudentInfo(models.Model):
     profile_image = models.ImageField(
@@ -365,6 +373,11 @@ class StudentInfo(models.Model):
     first_name = models.CharField(max_length=100)
     gender = models.CharField(
         max_length=100, choices=GENDER_CHOICES, default='None')
+    birthdate = models.DateField(default=timezone.now)
+    age = models.CharField(max_length=100)
+    address = models.CharField(max_length=500)
+    parent_civil_status = models.CharField(
+        max_length=100, choices=CIVIL_STATUS_CHOICES)
     level = models.CharField(
         max_length=100, default='None', choices=LEVEL_CHOICES)
     section = models.CharField(max_length=100, default='Not Applicable')

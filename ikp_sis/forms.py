@@ -5,11 +5,27 @@ from .models import StudentInfo
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = StudentInfo
-        fields = ['profile_image', 'family_name', 'first_name', 'gender', 'level', 'section', 'course', 'school_last_attended',
-                  'school_current', 'date_ikp_enrollment', 'sponsors_name', 'student_bio', 'educational_status']
+        fields = ['profile_image',
+                  'family_name',
+                  'first_name',
+                  'gender',
+                  'birthdate',
+                  'age',
+                  'address',
+                  'parent_civil_status',
+                  'level',
+                  'section',
+                  'course',
+                  'school_last_attended',
+                  'school_current',
+                  'date_ikp_enrollment',
+                  'sponsors_name',
+                  'student_bio',
+                  'educational_status']
         widgets = {'gender': forms.Select,
                    'level': forms.Select,
                    'course': forms.Select,
+                   'birthdate': forms.SelectDateWidget(years=range(1995, 2100)),
                    'date_ikp_enrollment': forms.SelectDateWidget(years=range(2005, 2100)),
                    'educational_status': forms.Select}
 
