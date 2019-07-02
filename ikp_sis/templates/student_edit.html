@@ -11,6 +11,7 @@
     {{ form.non_field_errors }}
     {% csrf_token %}
     <div class="form-group row">
+        {{ form.errors }}
         <div class="col-sm-12">
             <h2>
                 Profile Image
@@ -51,6 +52,14 @@
         <div class="col-sm-4">{{ form.birthdate }}</div>
     </div>
     <div class="form-group row">
+        {{ form.age.errors }}
+        <label for="{{ form.age.id_for_label }}" class="col-sm-2 col-form-label">Age</label>
+        <div class="col-sm-4">{{ form.age }}</div>
+        {{ form.address.errors }}
+        <label for="{{ form.address.id_for_label }}" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-4">{{ form.address }}</div>
+    </div>
+    <div class="form-group row">
         {{ form.parent_guardian_1.errors }}
         <label for="{{ form.parent_guardian_1.id_for_label }}" class="col-sm-2 col-form-label">Parent/Guardian 1</label>
         <div class="col-sm-4">{{ form.parent_guardian_1 }}</div>
@@ -59,19 +68,15 @@
         <div class="col-sm-4">{{ form.parent_guardian_2 }}</div>
     </div>
     <div class="form-group row">
-        {{ form.address.errors }}
-        <label for="{{ form.address.id_for_label }}" class="col-sm-2 col-form-label">Address</label>
-        <div class="col-sm-4">{{ form.address }}</div>
+
         {{ form.parent_civil_status.errors }}
         <label for="{{ form.parent_civil_status.id_for_label }}" class="col-sm-2 col-form-label">Parent's Civil
             Status</label>
         <div class="col-sm-4">{{ form.parent_civil_status }}</div>
-    </div>
-    <div class="form-group row">
         {{ form.student_bio.errors }}
         <label for="{{ form.student_bio.id_for_label }}" class="col-sm-2 col-form-label">Short Student
             Description</label>
-        <div class="col-sm-10">{{ form.student_bio }}</div>
+        <div class="col-sm-4">{{ form.student_bio }}</div>
     </div>
     <div class="form-group row">
         <div class="col-sm-12">
@@ -114,8 +119,7 @@
             </h2>
         </div>
         {{ form.date_ikp_enrollment.errors }}
-        <label for="{{ form.date_ikp_enrollment.id_for_label }}" class="col-sm-2 col-form-label">Date of IKP
-            Enrollment</label>
+        <label for="{{ form.date_ikp_enrollment.id_for_label }}" class="col-sm-2 col-form-label">Date Admitted</label>
         <div class="col-sm-4">{{ form.date_ikp_enrollment }}</div>
         {{ form.sponsors_name.errors }}
         <label for="{{ form.sponsors_name.id_for_label }}" class="col-sm-2 col-form-label">Sponsor's Name</label>
@@ -155,5 +159,31 @@
             document.getElementById('course_select_label').style.visibility = 'hidden';
         }
     }
+
+    function getAge(DOB) {
+        var today = new Date();
+        var birthDate = new Date(DOB);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age = age - 1;
+        }
+
+        return age;
+    }
+
+    id_birthdate_month.onchange = changeAge;
+    id_birthdate_day.onchange = changeAge;
+    id_birthdate_year.onchange = changeAge;
+
+    var currentAge = getAge(document.getElementById('id_birthdate_month').value + "/" + document.getElementById('id_birthdate_day').value + "/" + document.getElementById('id_birthdate_year').value);
+    document.getElementById('id_age').value = currentAge;
+
+    function changeAge() {
+        var currentAge = getAge(document.getElementById('id_birthdate_month').value + "/" + document.getElementById('id_birthdate_day').value + "/" + document.getElementById('id_birthdate_year').value);
+        document.getElementById('id_age').value = currentAge;
+    }
+
+    console.log(document.getElementById('id_birthdate_month').value + "/" + document.getElementById('id_birthdate_day').value + "/" + document.getElementById('id_birthdate_year').value);
 </script>
 {% endblock %}
