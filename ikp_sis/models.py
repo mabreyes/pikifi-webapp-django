@@ -374,10 +374,12 @@ class StudentInfo(models.Model):
     gender = models.CharField(
         max_length=100, choices=GENDER_CHOICES, default='None')
     birthdate = models.DateField(default=timezone.now)
-    age = models.CharField(max_length=100)
-    address = models.CharField(max_length=500)
+    age = models.CharField(max_length=100, default='0')
+    address = models.CharField(max_length=500, default='None')
+    parent_guardian_1 = models.CharField(max_length=100, default='None')
+    parent_guardian_2 = models.CharField(max_length=100, default='None')
     parent_civil_status = models.CharField(
-        max_length=100, choices=CIVIL_STATUS_CHOICES)
+        max_length=100, choices=CIVIL_STATUS_CHOICES, default='None')
     level = models.CharField(
         max_length=100, default='None', choices=LEVEL_CHOICES)
     section = models.CharField(max_length=100, default='Not Applicable')

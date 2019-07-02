@@ -12,6 +12,8 @@ class ProfileForm(forms.ModelForm):
                   'birthdate',
                   'age',
                   'address',
+                  'parent_guardian_1',
+                  'parent_guardian_2',
                   'parent_civil_status',
                   'level',
                   'section',
