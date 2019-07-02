@@ -11,8 +11,11 @@
     {{ form.non_field_errors }}
     {% csrf_token %}
     <div class="form-group row">
-        <div class="col-sm-5">
-            Profile Image
+        <div class="col-sm-12">
+            <h2>
+                Profile Image
+                <small class="text-muted">Unique Student Avatar</small>
+            </h2>
         </div>
     </div>
     <div class="form-group row">
@@ -26,6 +29,24 @@
         </div>
     </div>
     <div class="form-group row">
+        <div class="col-sm-12">
+            <h2>
+                Personal Information
+                <small class="text-muted">Basic Student Details</small>
+            </h2>
+        </div>
+        <div class="col-sm-12">
+            <h2>
+                Educational History
+                <small class="text-muted">Student Education-related Records</small>
+            </h2>
+        </div>
+        <div class="col-sm-12">
+            <h2>
+                Educational History
+                <small class="text-muted">Student Education-related Records</small>
+            </h2>
+        </div>
         {{ form.family_name.errors }}
         <label for="{{ form.family_name.id_for_label }}" class="col-sm-2 col-form-label">Family Name</label>
         <div class="col-sm-4">{{ form.family_name }}</div>

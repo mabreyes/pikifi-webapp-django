@@ -2,16 +2,16 @@
 
 <div class="jumbotron">
     {% if user.is_authenticated %}
-    <title>Student List &mdash; Philippine Island Kids International Foundation Database</title>
+    <title>Student List &mdash; Philippine Island Kids International Foundation, Inc. Database</title>
     <h1>Student Master List</h1>
-    <p class="lead">View student records from the inception of Philippine Island Kids International Foundation Database
+    <p class="lead">View student records from the inception of Philippine Island Kids International Foundation, Inc. Database
         up to present. To add a new
         student, click the button below.</p>
     <a class="btn btn-lg btn-primary" href="/student/new" role="button">
         <i class="fas fa-user-plus" style='margin-right: 20px;'></i>Add New Student</a>
     {% else %}
-    <title>Home &mdash; Philippine Island Kids International Foundation Database</title>
-    <h1>Welcome to Philippine Island Kids International Foundation Database.</h1>
+    <title>Home &mdash; Philippine Island Kids International Foundation, Inc. Database</title>
+    <h1>Welcome to Philippine Island Kids International Foundation, Inc. Database</h1>
     <p class="lead">Sign in to access contents of the database.</p>
     <a class="btn btn-lg btn-primary" href="admin/login/?next=/" role="button">
         <i class="fas fa-user" style='margin-right: 20px;'></i>Sign In</a>
