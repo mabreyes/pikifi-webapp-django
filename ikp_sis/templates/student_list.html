@@ -4,7 +4,8 @@
     {% if user.is_authenticated %}
     <title>Student List &mdash; Philippine Island Kids International Foundation, Inc. Database</title>
     <h1>Student Master List</h1>
-    <p class="lead">View student records from the inception of Philippine Island Kids International Foundation, Inc. Database
+    <p class="lead">View student records from the inception of Philippine Island Kids International Foundation, Inc.
+        Database
         up to present. To add a new
         student, click the button below.</p>
     <a class="btn btn-lg btn-primary" href="/student/new" role="button">
@@ -18,27 +19,33 @@
     {% endif %}
 </div>
 {% if user.is_authenticated %}
-<table class="table table-striped" id="myTable">
+<table class="table table-striped" id="myTable" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th colspan="2">Student Name</th>
-            <th>Gender</th>
-            <th>Level</th>
-            <th>Educational Status</th>
-            <th colspan="3">Actions</th>
+            <th class="filterhead">Student Name</th>
+            <th class="filterhead">Gender</th>
+            <th class="filterhead">Level</th>
+            <th class="filterhead">Has Sponsor</th>
+            <th class="filterhead">View</th>
+            <th class="filterhead">Edit</th>
+            <th class="filterhead">Delete</th>
         </tr>
     </thead>
     <tbody>
         {% for student in students %}
         <tr>
-            <td>
+            <!--<td>
                 <img src="/media/{{ student.profile_image }}" width="50" height="50" style="border-radius: .3rem"
                     alt="{{ student.family_name }}, {{ student.first_name }}">
-            </td>
+            </td>-->
             <td style="font-weight: bold;">{{ student.family_name }}, {{ student.first_name }}</td>
             <td>{{ student.gender }}</td>
             <td>{{ student.level }}</td>
-            <td>{{ student.educational_status }}</td>
+            {% if student.sponsors_name != 'None' %}
+            <td>Yes</td>
+            {% else %}
+            <td>No</td>
+            {% endif %}
             <td>
                 <a class="btn btn-md btn-primary" href="{% url 'student_detail' pk=student.pk %}" role="button">
                     <i class="fas fa-eye"></i></a>

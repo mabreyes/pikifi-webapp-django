@@ -58,15 +58,35 @@
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'js/buttons.print.min.js' %}"></script>
     <script>
         $(document).ready(function () {
-            $('#myTable').DataTable({
+            var table = $('#myTable').DataTable({
                 'columnDefs': [{
-                    'targets': [5, 6, 7],
+                    'targets': [4, 5, 6],
                     'searchable': false,
                     'orderable': false,
                     'visible': true
-                }]
+                }],
+                "bLengthChange": false,
+                "iDisplayLength": 15,
+                dom: 'Bfrtip',
+                buttons: [
+                    'print'
+                ]
+            });
+
+            $(".filterhead").not(":eq(4),:eq(5),:eq(6)").each(function (i) {
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo($(this).empty())
+                    .on('change', function () {
+                        var term = $(this).val();
+                        table.column(i).search(term, false, false).draw();
+                    });
+                table.column(i).data().unique().sort().each(function (d, j) {
+                    select.append('<option value="' + d + '">' + d + '</option>')
+                });
             });
         });
     </script>
