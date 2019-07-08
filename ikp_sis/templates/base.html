@@ -12,7 +12,8 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'font_awesome/css/all.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{% static 'css/jquery.dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.dataTables.min.css' %}">
 
 
 </head>
@@ -60,9 +61,30 @@
     <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
     <script src="{% static 'js/dataTables.buttons.min.js' %}"></script>
     <script src="{% static 'js/buttons.print.min.js' %}"></script>
+    <script src="{% static 'js/buttons.colVis.min.js' %}"></script>
+    <script src="{% static 'js/filterDropDown.min.js' %}"></script>
+    <script src="{% static 'js/jszip.min.js' %}"></script>
+    <script src="{% static 'js/pdfmake.min.js' %}"></script>
+    <script src="{% static 'js/vfs_fonts.js' %}"></script>
+    <script src="{% static 'js/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'js/buttons.flash.min.js' %}"></script>
     <script>
         $(document).ready(function () {
             var table = $('#myTable').DataTable({
+                filterDropDown: {
+                    columns: [
+                        {
+                            idx: 1
+                        },
+                        {
+                            idx: 2
+                        },
+                        {
+                            idx: 3
+                        }
+                    ],
+                    bootstrap: true
+                },
                 'columnDefs': [{
                     'targets': [4, 5, 6],
                     'searchable': false,
@@ -73,20 +95,36 @@
                 "iDisplayLength": 15,
                 dom: 'Bfrtip',
                 buttons: [
-                    'print'
+                    {
+                        extend: 'colvis',
+                        text: 'Toggle Columns',
+                    },
+                    {
+                        extend: 'copy',
+                        text: 'Copy Rows',
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        title: 'Data export',
+                        messageTop: 'The information in this table is copyright to Sirius Cybernetics Corp.',
+                        exportOptions: {
+                            columns: ':not(.notexport)'
+                        },
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        title: 'Data export',
+                        exportOptions: {
+                            columns: ':not(.notexport)'
+                        },
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':not(.notexport)'
+                        },
+                    }
                 ]
-            });
-
-            $(".filterhead").not(":eq(4),:eq(5),:eq(6)").each(function (i) {
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo($(this).empty())
-                    .on('change', function () {
-                        var term = $(this).val();
-                        table.column(i).search(term, false, false).draw();
-                    });
-                table.column(i).data().unique().sort().each(function (d, j) {
-                    select.append('<option value="' + d + '">' + d + '</option>')
-                });
             });
         });
     </script>
