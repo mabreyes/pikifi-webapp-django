@@ -84,34 +84,40 @@
             var generatedDate = now.toLocaleString('en-us', options);
 
             var table = $('#myTable').DataTable({
+                language: {
+                    searchPlaceholder: "Search Records",
+                },
                 filterDropDown: {
                     columns: [
                         {
-                            idx: 3
+                            idx: 4
                         },
                         {
-                            idx: 12
+                            idx: 13
                         },
                         {
-                            idx: 15
+                            idx: 16
+                        },
+                        {
+                            idx: 17
                         }
                     ],
                     bootstrap: true
                 },
                 'columnDefs': [
                     {
-                        'targets': [19, 20, 21],
+                        'targets': [0, 20, 21, 22],
                         'searchable': false,
                         'orderable': false,
                         'visible': true
                     },
                     {
-                        'targets': [1, 2, 6, 7, 8, 9, 10, 11, 13, 14, 18],
+                        'targets': [2, 3, 7, 8, 9, 10, 11, 12, 14, 15, 19],
                         'visible': false
                     },
                 ],
                 "bLengthChange": false,
-                "iDisplayLength": 10,
+                "iDisplayLength": 5,
                 dom: 'Bfrtip',
                 buttons: [
                     {
@@ -145,6 +151,7 @@
                     {
                         extend: "print",
                         title: 'Philippine Island Kids International Foundation, Inc.',
+                        text: 'Print Visible',
                         messageTop: 'Report Generated on ' + generatedDate,
                         exportOptions: {
                             columns: ':not(.notexport)'

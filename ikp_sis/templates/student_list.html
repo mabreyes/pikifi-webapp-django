@@ -22,11 +22,12 @@
 <table class="table table-striped" id="myTable" cellspacing="0" width="100%">
     <style>
         .myTable_filterSelect {
-            margin: 0 0.5em 0.5em 0.5em;
+            margin: 0 0.3em 0.5em 0.5em;
         }
     </style>
     <thead>
         <tr>
+            <th class="notexport">Profile Image</th>
             <th class="notexport">Student Name</th>
             <th>Last Name</th>
             <th>First Name</th>
@@ -54,10 +55,10 @@
     <tbody>
         {% for student in students %}
         <tr>
-            <!--<td>
+            <td>
                 <img src="/media/{{ student.profile_image }}" width="50" height="50" style="border-radius: .3rem"
                     alt="{{ student.family_name }}, {{ student.first_name }}">
-            </td>-->
+            </td>
             <td style="font-weight: bold;">{{ student.family_name }}, {{ student.first_name }}</td>
             <td>{{ student.family_name }}</td>
             <td>{{ student.first_name }}</td>
