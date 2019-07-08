@@ -103,7 +103,7 @@
                 buttons: [
                     {
                         extend: 'colvis',
-                        text: 'Toggle Columns',
+                        text: 'Toggle Column Visibility',
                     },
                     {
                         extend: 'copy',
@@ -111,7 +111,8 @@
                     },
                     {
                         extend: 'excelHtml5',
-                        title: 'Data export',
+                        title: 'Philippine Island Kids International Foundation, Inc.',
+                        text: 'Export to Excel (.xlsx)',
                         messageTop: 'The information in this table is copyright to Sirius Cybernetics Corp.',
                         exportOptions: {
                             columns: ':not(.notexport)'
@@ -119,16 +120,43 @@
                     },
                     {
                         extend: 'pdfHtml5',
-                        title: 'Data export',
+                        title: 'Philippine Island Kids International Foundation, Inc.',
+                        messageTop: 'Generated on {date}',
+                        text: 'Export to PDF (.pdf)',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
                         exportOptions: {
                             columns: ':not(.notexport)'
                         },
                     },
                     {
-                        extend: 'print',
+                        extend: "print",
+                        title: 'Philippine Island Kids International Foundation, Inc.',
                         exportOptions: {
                             columns: ':not(.notexport)'
                         },
+                        customize: function (win) {
+
+                            var last = null;
+                            var current = null;
+                            var bod = [];
+
+                            var css = '@page { size: landscape; }',
+                                head = win.document.head || win.document.getElementsByTagName('head')[0],
+                                style = win.document.createElement('style');
+
+                            style.type = 'text/css';
+                            style.media = 'print';
+
+                            if (style.styleSheet) {
+                                style.styleSheet.cssText = css;
+                            }
+                            else {
+                                style.appendChild(win.document.createTextNode(css));
+                            }
+
+                            head.appendChild(style);
+                        }
                     }
                 ]
             });
