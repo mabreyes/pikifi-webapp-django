@@ -20,12 +20,32 @@
 </div>
 {% if user.is_authenticated %}
 <table class="table table-striped" id="myTable" cellspacing="0" width="100%">
+    <style>
+        .myTable_filterSelect {
+            margin: 0 0.5em 0.5em 0.5em;
+        }
+    </style>
     <thead>
         <tr>
-            <th>Student Name</th>
+            <th class="notexport">Student Name</th>
+            <th>Last Name</th>
+            <th>First Name</th>
             <th>Gender</th>
-            <th>Level</th>
-            <th>Has Sponsor</th>
+            <th>Birthdate</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Parent/Guardian 1</th>
+            <th>Parent/Guardian 2</th>
+            <th>Parent Civil Status</th>
+            <th>School Last Attended</th>
+            <th>Current School</th>
+            <th>Grade/Year Level</th>
+            <th>Section</th>
+            <th>Course</th>
+            <th>Promotional Status</th>
+            <th class="notexport">Has Sponsor</th>
+            <th>Date Admitted</th>
+            <th>Sponsor's Name</th>
             <th class="notexport">View</th>
             <th class="notexport">Edit</th>
             <th class="notexport">Delete</th>
@@ -39,13 +59,28 @@
                     alt="{{ student.family_name }}, {{ student.first_name }}">
             </td>-->
             <td style="font-weight: bold;">{{ student.family_name }}, {{ student.first_name }}</td>
+            <td>{{ student.family_name }}</td>
+            <td>{{ student.first_name }}</td>
             <td>{{ student.gender }}</td>
+            <td>{{ student.birthdate }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.address }}</td>
+            <td>{{ student.parent_guardian_1 }}</td>
+            <td>{{ student.parent_guardian_2 }}</td>
+            <td>{{ student.parent_civil_status }}</td>
+            <td>{{ student.school_last_attended }}</td>
+            <td>{{ student.school_current }}</td>
             <td>{{ student.level }}</td>
+            <td>{{ student.section }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.educational_status }}</td>
             {% if student.sponsors_name != 'None' %}
             <td>Yes</td>
             {% else %}
             <td>No</td>
             {% endif %}
+            <td>{{ student.date_ikp_enrollment }}</td>
+            <td>{{ student.sponsors_name }}</td>
             <td>
                 <a class="btn btn-md btn-primary" href="{% url 'student_detail' pk=student.pk %}" role="button">
                     <i class="fas fa-eye"></i></a>

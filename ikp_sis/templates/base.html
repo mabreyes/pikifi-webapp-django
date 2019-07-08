@@ -74,25 +74,31 @@
                 filterDropDown: {
                     columns: [
                         {
-                            idx: 1
-                        },
-                        {
-                            idx: 2
-                        },
-                        {
                             idx: 3
+                        },
+                        {
+                            idx: 12
+                        },
+                        {
+                            idx: 15
                         }
                     ],
                     bootstrap: true
                 },
-                'columnDefs': [{
-                    'targets': [4, 5, 6],
-                    'searchable': false,
-                    'orderable': false,
-                    'visible': true
-                }],
+                'columnDefs': [
+                    {
+                        'targets': [19, 20, 21],
+                        'searchable': false,
+                        'orderable': false,
+                        'visible': true
+                    },
+                    {
+                        'targets': [1, 2, 6, 7, 8, 9, 10, 11, 13, 14, 18],
+                        'visible': false
+                    },
+                ],
                 "bLengthChange": false,
-                "iDisplayLength": 15,
+                "iDisplayLength": 10,
                 dom: 'Bfrtip',
                 buttons: [
                     {
