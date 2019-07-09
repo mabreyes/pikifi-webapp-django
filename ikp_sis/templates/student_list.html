@@ -1,5 +1,22 @@
 {% extends 'base.html' %} {% block content %}
-
+{% if user.is_authenticated %}
+{% if user.is_authenticated and user.is_editor %}
+<div class="alert alert-primary" role="alert">
+    You are signed up for an <i class="fa fa-edit"></i> <strong>Editor</strong> account. As an <i
+        class="fa fa-edit"></i> <strong>Editor</strong>,
+    you can
+    <strong>add</strong>, <strong>update</strong>, <strong>remove</strong>, and <strong>print</strong> students from the
+    record.
+</div>
+{% else %}
+<div class="alert alert-success" role="alert">
+    You are signed up for a <i class="fa fa-eye"></i> <strong>Viewer</strong> account. As a <i class="fa fa-eye"></i>
+    <strong>Viewer</strong>, you are only limited to <strong>adding</strong> and <strong>printing</strong> students from
+    the
+    record.
+</div>
+{% endif %}
+{% endif %}
 <div class="jumbotron">
     {% if user.is_authenticated %}
     <h1>Student Master List</h1>
