@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
         <div class="container">
             <a class="navbar-brand" href="/">Philippine Island Kids International Foundation, Inc. Database</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -31,8 +31,9 @@
                 </ul>
                 {% if user.is_authenticated %}
                 <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn btn-primary btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        style="background-color: #1e7e34; border-color: #1c7430;" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         Signed in as <strong>{{ user }}</strong>
                     </a>
 
