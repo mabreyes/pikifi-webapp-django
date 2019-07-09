@@ -185,7 +185,7 @@ COURSE_CHOICES = [
         ('Bachelor of Science in Computer Science (BSCS)',
          'Bachelor of Science in Computer Science (BSCS)'),
         ('Bachelor of Science in Information Technology (BSIT)',
-         'Bachelor of Science in Information Technology(BSIT)'),
+         'Bachelor of Science in Information Technology (BSIT)'),
         ('Bachelor of Science in Information Systems (BSIS)',
          'Bachelor of Science in Information Systems (BSIS)'),
         ('Bachelor of Science in Mathematics (BS Mathematics)',
@@ -270,6 +270,8 @@ COURSE_CHOICES = [
          'Bachelor in Secondary Education Major in Technology and Livelihood Education (BSED)'),
         ('Bachelor in Secondary Education Major in Biological Sciences (BSED)',
          'Bachelor in Secondary Education Major in Biological Sciences (BSED)'),
+        ('Bachelor in Secondary Education Major in English (BSED)',
+         'Bachelor in Secondary Education Major in English (BSED)'),
         ('Bachelor in Secondary Education Major in Filipino (BSED)',
          'Bachelor in Secondary Education Major in Filipino (BSED)'),
         ('Bachelor in Secondary Education Major in Mathematics (BSED)',
@@ -370,11 +372,17 @@ COURSE_CHOICES = [
 ]
 
 CIVIL_STATUS_CHOICES = [
+    ('None', 'Select Civil Status'),
     ('Married', 'Married'),
     ('Separated', 'Separated'),
     ('Widow/Widower', 'Widow/Widower'),
     ('Solo', 'Solo'),
     ('Common Law', 'Common Law'),
+]
+
+CHILD_STATUS_CHOICES = [
+    ('None', 'Select Status'),
+    ('Orphaned', 'Orphaned'),
 ]
 
 
@@ -388,22 +396,24 @@ class StudentInfo(models.Model):
     gender = models.CharField(
         max_length=100, choices=GENDER_CHOICES, default='None')
     birthdate = models.DateField(default=timezone.now)
-    age = models.CharField(max_length=100, default='0')
-    address = models.CharField(max_length=500, default='None')
-    parent_guardian_1 = models.CharField(max_length=100, default='None')
-    parent_guardian_2 = models.CharField(max_length=100, default='None')
+    age = models.CharField(max_length=100)
+    address = models.CharField(max_length=500)
+    parent_guardian_1 = models.CharField(max_length=100)
+    parent_guardian_2 = models.CharField(max_length=100)
     parent_civil_status = models.CharField(
         max_length=100, choices=CIVIL_STATUS_CHOICES, default='None')
+    child_status = models.CharField(
+        max_length=100, default='None', choices=CHILD_STATUS_CHOICES)
     level = models.CharField(
         max_length=100, default='None', choices=LEVEL_CHOICES)
-    section = models.CharField(max_length=100, default='Not Applicable')
+    section = models.CharField(max_length=100)
     course = models.CharField(
         max_length=100, default='None', choices=COURSE_CHOICES)
-    school_last_attended = models.CharField(max_length=200, default='None')
-    school_current = models.CharField(max_length=200, default='None')
+    school_last_attended = models.CharField(max_length=200)
+    school_current = models.CharField(max_length=200)
     date_ikp_enrollment = models.DateField(default=timezone.now)
-    sponsors_name = models.CharField(max_length=100, default='None')
-    student_bio = models.TextField(default='Add a description')
+    sponsors_name = models.CharField(max_length=100)
+    student_bio = models.TextField(max_length=1000)
     educational_status = models.CharField(max_length=100,
                                           default='None', choices=PROMOTION_CHOICES)
     created_date = models.DateTimeField(default=timezone.now)

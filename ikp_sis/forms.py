@@ -17,6 +17,7 @@ class ProfileForm(forms.ModelForm):
                   'parent_guardian_1',
                   'parent_guardian_2',
                   'parent_civil_status',
+                  'child_status',
                   'level',
                   'section',
                   'course',
@@ -27,6 +28,7 @@ class ProfileForm(forms.ModelForm):
                   'student_bio',
                   'educational_status']
         widgets = {'gender': forms.Select,
+                   'child_status': forms.Select,
                    'level': forms.Select,
                    'course': forms.Select,
                    'birthdate': forms.SelectDateWidget(years=range(1995, 2100)),
