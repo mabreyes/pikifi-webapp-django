@@ -38,8 +38,8 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="/admin">Settings</a>
-                        <a class="dropdown-item" href="/accounts/logout/?next=/">Sign Out</a>
+                        <a class="dropdown-item" href="{% url 'change_password' %}">Settings</a>
+                        <a class="dropdown-item" href="/accounts/logout/?next={% url 'signout' %}">Sign Out</a>
                         {% endif %}
                     </div>
                 </div>

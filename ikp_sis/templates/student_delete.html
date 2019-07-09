@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="jumbotron">
-    {%if request.user.is_authenticated and request.user == author %}
+    {%if request.user.is_authenticated and user.is_editor %}
     <title>Delete {{ student.family_name}}, {{ student.first_name }}? &mdash; Philippine Island Kids International
         Foundation Database</title>
     <h1>Delete {{ student.family_name}}, {{ student.first_name }}?</h1>
@@ -12,7 +12,7 @@
             <i class="fa fa-undo" style='margin-right: 20px;'></i>Cancel</a>
         <input class="btn btn-lg btn-danger" type="submit" value="Delete" />
     </form>
-    {%elif request.user != author %}
+    {% else %}
     <title>Unable to delete &mdash; Philippine Island Kids International Foundation Database</title>
     <h1>You cannot delete this entry.</h1>
     <p class="lead">Sign in with an account that is provided with rights to delete this record.</p>

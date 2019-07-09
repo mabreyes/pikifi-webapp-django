@@ -38,6 +38,14 @@
         .dt-buttons button {
             margin: 0 0.5em 0 0;
         }
+
+        .isDisabled {
+            color: currentColor;
+            cursor: not-allowed;
+            opacity: 0.5;
+            text-decoration: none;
+            pointer-events: none;
+        }
     </style>
     <thead>
         <tr>
@@ -99,13 +107,25 @@
             <td>
                 <a class="btn btn-md btn-primary" href="{% url 'student_detail' pk=student.pk %}" role="button">
                     <i class="fa fa-eye"></i></a>
+                {% if user.is_authenticated and user.is_editor %}
             <td>
                 <a class="btn btn-md btn-secondary" href="{% url 'student_edit' pk=student.pk %}" role="button">
                     <i class="fa fa-edit"></i></a>
             </td>
+            {% else %}
+            <td>
+                <a class="btn btn-md btn-secondary isDisabled" href="#" role="button">
+                    <i class="fa fa-edit"></i></a>
+            </td>
+            {% endif %}
+            {% if user.is_authenticated and user.is_editor %}
             <td>
                 <a class="btn btn-md btn-danger" href="{% url 'student_delete' pk=student.pk %}" role="button">
                     <i class="fa fa-trash-o"></i></a></td>
+            {% else %}
+            <td><a class="btn btn-md btn-danger isDisabled" href="#" role="button">
+                    <i class="fa fa-trash-o"></i></a></td>
+            {% endif %}
 
         </tr>
         {% endfor %}
