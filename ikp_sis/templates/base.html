@@ -11,7 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'font_awesome/css/all.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/jquery.dataTables.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/buttons.dataTables.min.css' %}">
 
@@ -83,9 +83,15 @@
 
             var generatedDate = now.toLocaleString('en-us', options);
 
+            $.extend($.fn.dataTableExt.oStdClasses, {
+                "sFilterInput": "form-control",
+                "sLengthSelect": "form-control"
+            });
+
             var table = $('#myTable').DataTable({
                 language: {
-                    searchPlaceholder: "Search Records",
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search Records"
                 },
                 filterDropDown: {
                     columns: [
@@ -122,36 +128,61 @@
                 buttons: [
                     {
                         extend: 'colvis',
-                        text: 'Toggle Column Visibility',
+                        text: '<i class="fa fa-eye" style="margin-right: 10px;"></i> Columns',
+                        className: 'btn btn-primary',
+                        init: function (api, node, config) {
+                            $(node).removeClass('dt-button')
+                            $(node).removeClass('buttons-collection')
+                            $(node).removeClass('buttons-colvis')
+                        }
                     },
                     {
                         extend: 'copy',
-                        text: 'Copy Rows',
+                        text: '<i class="fa fa-copy" style="margin-right: 10px;"></i> Copy Rows',
+                        className: 'btn btn-warning',
+                        init: function (api, node, config) {
+                            $(node).removeClass('dt-button')
+                            $(node).removeClass('buttons-copy')
+                            $(node).removeClass('buttons-html5')
+                        }
                     },
                     {
                         extend: 'excelHtml5',
                         title: 'Philippine Island Kids International Foundation, Inc.',
-                        text: 'Export to Excel (.xlsx)',
+                        text: '<i class="fa fa-file-excel-o" style="margin-right: 10px;"></i> Export to Excel (.xlsx)',
                         messageTop: 'Report Generated on ' + generatedDate,
                         exportOptions: {
                             columns: ':not(.notexport)'
                         },
+                        className: 'btn btn-success',
+                        init: function (api, node, config) {
+                            $(node).removeClass('dt-button')
+                            $(node).removeClass('buttons-excel')
+                            $(node).removeClass('buttons-html5')
+                        }
+
                     },
                     {
                         extend: 'pdfHtml5',
                         title: 'Philippine Island Kids International Foundation, Inc.',
                         messageTop: 'Report Generated on ' + generatedDate,
-                        text: 'Export to PDF (.pdf)',
+                        text: '<i class="fa fa-file-pdf-o" style="margin-right: 10px;"></i> Export to PDF (.pdf)',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
                             columns: ':not(.notexport)'
                         },
+                        className: 'btn btn-danger',
+                        init: function (api, node, config) {
+                            $(node).removeClass('dt-button')
+                            $(node).removeClass('buttons-pdf')
+                            $(node).removeClass('buttons-html5')
+                        }
                     },
                     {
                         extend: "print",
                         title: 'Philippine Island Kids International Foundation, Inc.',
-                        text: 'Print Visible',
+                        text: '<i class="fa fa-print" style="margin-right: 10px;"></i> Print Visible',
                         messageTop: 'Report Generated on ' + generatedDate,
                         exportOptions: {
                             columns: ':not(.notexport)'
@@ -177,6 +208,11 @@
                             }
 
                             head.appendChild(style);
+                        },
+                        className: 'btn btn-info',
+                        init: function (api, node, config) {
+                            $(node).removeClass('dt-button')
+                            $(node).removeClass('buttons-print')
                         }
                     }
                 ]

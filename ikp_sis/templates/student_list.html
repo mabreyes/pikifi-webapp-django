@@ -9,20 +9,32 @@
         up to present. To add a new
         student, click the button below.</p>
     <a class="btn btn-lg btn-primary" href="/student/new" role="button">
-        <i class="fas fa-user-plus" style='margin-right: 20px;'></i>Add New Student</a>
+        <i class="fa fa-user-plus" style='margin-right: 20px;'></i>Add New Student</a>
     {% else %}
     <title>Home &mdash; Philippine Island Kids International Foundation, Inc. Database</title>
     <h1>Welcome to Philippine Island Kids International Foundation, Inc. Database</h1>
     <p class="lead">Sign in to access contents of the database.</p>
     <a class="btn btn-lg btn-primary" href="admin/login/?next=/" role="button">
-        <i class="fas fa-user" style='margin-right: 20px;'></i>Sign In</a>
+        <i class="fa fa-user" style='margin-right: 20px;'></i>Sign In</a>
     {% endif %}
 </div>
 {% if user.is_authenticated %}
 <table class="table table-striped" id="myTable" cellspacing="0" width="100%">
     <style>
+        .myTable_filterWrapper {
+            margin-bottom: 0.5em;
+        }
+
         .myTable_filterSelect {
             margin: 0 0.3em 0.5em 0.5em;
+        }
+
+        .dt-buttons {
+            margin-bottom: 1em;
+        }
+
+        .dt-buttons button {
+            margin: 0 0.5em 0 0;
         }
     </style>
     <thead>
@@ -84,14 +96,14 @@
             <td>{{ student.sponsors_name }}</td>
             <td>
                 <a class="btn btn-md btn-primary" href="{% url 'student_detail' pk=student.pk %}" role="button">
-                    <i class="fas fa-eye"></i></a>
+                    <i class="fa fa-eye"></i></a>
             <td>
                 <a class="btn btn-md btn-secondary" href="{% url 'student_edit' pk=student.pk %}" role="button">
-                    <i class="fas fa-pen"></i></a>
+                    <i class="fa fa-edit"></i></a>
             </td>
             <td>
                 <a class="btn btn-md btn-danger" href="{% url 'student_delete' pk=student.pk %}" role="button">
-                    <i class="fas fa-user-minus"></i></a></td>
+                    <i class="fa fa-trash-o"></i></a></td>
 
         </tr>
         {% endfor %}

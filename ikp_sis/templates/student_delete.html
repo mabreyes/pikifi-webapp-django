@@ -9,7 +9,7 @@
     <form method="POST" action="">
         {% csrf_token %}
         <a class="btn btn-lg btn-secondary" href="/" role="button" style="margin-right: 10px;">
-            <i class="fas fa-undo" style='margin-right: 20px;'></i>Cancel</a>
+            <i class="fa fa-undo" style='margin-right: 20px;'></i>Cancel</a>
         <input class="btn btn-lg btn-danger" type="submit" value="Delete" />
     </form>
     {%elif request.user != author %}
