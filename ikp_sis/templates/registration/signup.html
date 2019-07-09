@@ -2,8 +2,10 @@
 {% block title %}Select an Account Type{% endblock %}
 
 {% block content %}
-<h2>Sign up for a free account</h2>
-<p class="lead">Select below the type of account you want to create</p>
-<a href="{% url 'viewer_signup' %}" class="btn btn-primary btn-lg" role="button">Viewer</a>
-<a href="{% url 'editor_signup' %}" class="btn btn-warning btn-lg" role="button">Editor</a>
+<h2>Sign Up for an Account</h2>
+<p class="lead">Select below the type of account you want to create.</p>
+<a href="{% url 'viewer_signup' %}" class="btn btn-primary btn-lg" role="button" style="margin-right: 10px;"><i
+        class="fa fa-eye" style="margin-right: 20px;"></i> Viewer</a>
+<a href="{% url 'editor_signup' %}" class="btn btn-warning btn-lg" role="button" style="margin-right: 10px;"><i
+        class="fa fa-edit" style="margin-right: 20px;"></i> Editor</a>
 {% endblock %}
