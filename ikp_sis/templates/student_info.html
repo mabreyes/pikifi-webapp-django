@@ -15,10 +15,12 @@
             <h1>{{ student.family_name }}</h1>
             <h3 style="color: #6c757d;">{{ student.first_name }}</h2>
                 <p>{{ student.student_bio }}</p>
+                {% if user.is_authenticated and user.is_editor %}
                 <a class="btn btn-lg btn-secondary" href="edit/" role="button" style="margin-right: 10px;">
                     <i class="fa fa-edit" style='margin-right: 20px;'></i>Edit Details</a>
                 <a class="btn btn-lg btn-danger" href="delete/" role="button">
                     <i class="fa fa-trash-o" style='margin-right: 20px;'></i>Remove Record</a>
+                {% endif %}
         </div>
     </div>
 </div>
