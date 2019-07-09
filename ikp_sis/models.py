@@ -1,6 +1,19 @@
 from django.db import models
 from django.utils import timezone
 
+from django.contrib.auth.models import AbstractUser
+
+
+class DatabaseUser(AbstractUser):
+    is_viewer = models.BooleanField(default=False)
+    is_editor = models.BooleanField(default=False)
+
+
+class Viewer(models.Model):
+    user = models.OneToOneField(
+        DatabaseUser, on_delete=models.CASCADE, primary_key=True)
+
+
 GENDER_CHOICES = [
     ('None', 'Select Gender'),
     ('Male', 'Male'),
@@ -368,7 +381,8 @@ CIVIL_STATUS_CHOICES = [
 class StudentInfo(models.Model):
     profile_image = models.ImageField(
         upload_to='uploads/%Y/%m/%d/', default='default_none.png')
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        'ikp_sis.DatabaseUser', on_delete=models.CASCADE)
     family_name = models.CharField(max_length=100)
     first_name = models.CharField(max_length=100)
     gender = models.CharField(

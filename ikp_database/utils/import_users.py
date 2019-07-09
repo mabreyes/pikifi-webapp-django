@@ -1,10 +1,10 @@
 import pandas as pd
 from ikp_sis.models import StudentInfo
-from django.contrib.auth.models import User
+from django.contrib.auth.models import DatabaseUser
 
 
 def bulk_add_users():
-    me = User.objects.get(username='marcreyesph')
+    me = DatabaseUser.objects.get(username='marcreyesph')
     data_all = pd.read_csv('data.csv')
     ctr = len(data_all['family_name'])
 

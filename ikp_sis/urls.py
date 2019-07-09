@@ -1,5 +1,8 @@
 from django.conf.urls import url
+from django.urls import include, path
+
 from . import views
+from .users import editors, viewers, organization
 
 urlpatterns = [
     url(r'^$', views.student_list, name='student_list'),
@@ -8,4 +11,10 @@ urlpatterns = [
     url(r'^student/(?P<pk>\d+)/edit/$', views.student_edit, name='student_edit'),
     url(r'^student/(?P<pk>\d+)/delete/$',
         views.student_delete, name='student_delete'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', organization.SignUpView.as_view(), name='signup'),
+    path('accounts/signup/viewer/',
+         viewers.ViewerSignUpView.as_view(), name='viewer_signup'),
+    path('accounts/signup/editor/',
+         editors.EditorSignUpView.as_view(), name='editor_signup'),
 ]

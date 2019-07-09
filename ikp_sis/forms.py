@@ -1,5 +1,7 @@
 from django import forms
-from .models import StudentInfo
+from .models import StudentInfo, DatabaseUser, Viewer
+from django.contrib.auth.forms import UserCreationForm
+from django.db import transaction
 
 
 class ProfileForm(forms.ModelForm):
@@ -47,3 +49,29 @@ class ProfileForm(forms.ModelForm):
                 field.widget.attrs['class'] = 'form-check form-check-input'
             if isinstance(field.widget, forms.ImageField):
                 field.widget.attrs['class'] = 'custom-file-input'
+
+
+class ViewerSignUpForm(UserCreationForm):
+
+    class Meta(UserCreationForm.Meta):
+        model = DatabaseUser
+
+    @transaction.atomic
+    def save(self):
+        user = super().save(commit=False)
+        user.is_viewer = True
+        user.save()
+        viewer = Viewer.objects.create(user=user)
+        return user
+
+
+class EditorSignUpForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = DatabaseUser
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.is_editor = True
+        if commit:
+            user.save()
+        return user
