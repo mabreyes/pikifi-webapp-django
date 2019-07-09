@@ -1,6 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<title>{{ student.family_name }}, {{ student.first_name }} &mdash; Philippine Island Kids International Foundation, Inc.
-    Database</title>
+<span style="display: none;">{% block title %}{{ student.family_name }}, {{ student.first_name }}{% endblock %}</span>
 <div class="jumbotron">
     <div class="row">
         <div class='col-sm-4'>

@@ -1,8 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <div class="jumbotron">
-    {%if request.user.is_authenticated and user.is_editor %}
-    <title>Delete {{ student.family_name}}, {{ student.first_name }}? &mdash; Philippine Island Kids International
-        Foundation Database</title>
+    {% if request.user.is_authenticated and user.is_editor %}
+    <span style="display: none;">{% block title %}Delete Record{% endblock %}</span>
     <h1>Delete {{ student.family_name}}, {{ student.first_name }}?</h1>
     <p class="lead">Are you sure you want to delete the record? Once you proceed, you can no longer retrieve the data.
         Should you want the record back, you would have to add the record manually.</p>
@@ -13,7 +12,6 @@
         <input class="btn btn-lg btn-danger" type="submit" value="Delete" />
     </form>
     {% else %}
-    <title>Unable to delete &mdash; Philippine Island Kids International Foundation Database</title>
     <h1>You cannot delete this entry.</h1>
     <p class="lead">Sign in with an account that is provided with rights to delete this record.</p>
     <a class="btn btn-lg btn-secondary" href="/" role="button">Return</a>
