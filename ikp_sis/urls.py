@@ -24,3 +24,6 @@ urlpatterns = [
     path('accounts/signout/',
          views.signout_prompt, name='signout'),
 ]
+
+handler404 = 'views.handler404'
+handler500 = 'views.handler500'
