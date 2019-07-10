@@ -6,3 +6,4 @@ whitenoise
 pandas
 Pillow
 django-crispy-forms
+django-multiselectfield
