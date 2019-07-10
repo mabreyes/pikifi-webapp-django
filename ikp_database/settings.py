@@ -25,7 +25,7 @@ LOGIN_REDIRECT_URL = '/'
 SECRET_KEY = '+=ci=p31gb_3584!=tix@6+)g-52yem)ydk7=dhb+c72hd#bgo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['pikifi-dev.herokuapp.com', 'marcx', 'localhost', '127.0.0.1']
 

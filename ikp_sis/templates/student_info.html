@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
-<span style="display: none;">{% block title %}{{ student.family_name }}, {{ student.first_name }}{% endblock %}</span>
-<div class="jumbotron">
+<span style="display: none;">{% block title %}{{ student.family_name }},
+    {{ student.first_name }}{% endblock %}</span>
+<div class="jumbotron" id="download-page">
     <div class="row">
         <div class='col-sm-4'>
             <div class="card">
@@ -20,7 +21,37 @@
                     <i class="fa fa-edit" style='margin-right: 20px;'></i>Edit Details</a>
                 <a class="btn btn-lg btn-danger" href="delete/" role="button">
                     <i class="fa fa-trash-o" style='margin-right: 20px;'></i>Remove Record</a>
+                <div class="btn-group" style="margin-left: 10px;">
+                    <button class="btn btn-lg btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Export As
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#" onclick="window.print();"><i class="fa fa-print"
+                                style="margin-right: 10px;"></i>
+                            Print Page</a>
+                        <!--<a class="dropdown-item" href="#"><i class="fa fa-file-pdf-o" style="margin-right: 10px;"></i>
+                            PDF</a>-->
+                    </div>
+                </div>
+                {% else %}
+                <div class="btn-group">
+                    <button class="btn btn-lg btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Export As
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#" onclick="window.print();"><i class="fa fa-print"
+                                style="margin-right: 10px;"></i>
+                            Print Page</a>
+                        <!--<a class="dropdown-item" href="#"
+                            onclick="return xepOnline.Formatter.Format('export-page',{pageWidth: '8.5in', pageHeight: '13in', render:'download', filename: '{{ student.family_name }}-0000{{ student.pk }}-record'});"><i
+                                class="fa fa-file-pdf-o" style="margin-right: 10px;"></i>
+                            PDF</a>-->
+                    </div>
+                </div>
                 {% endif %}
+
         </div>
     </div>
 </div>
