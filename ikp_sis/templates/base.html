@@ -53,6 +53,24 @@
                         <a class="dropdown-item" href="/accounts/logout/?next={% url 'signout' %}">Sign Out</a>
                         {% endif %}
                     </div>
+                    {% url 'student_detail' pk=student.pk as the_url %}
+                    {% if request.get_full_path == the_url %}
+                    <div class="btn-group">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Export As
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.print();"><i class="fa fa-print"
+                                    style="margin-right: 10px;"></i>
+                                Print Page</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="return xepOnline.Formatter.Format('export-page',{pageWidth: '8.5in', pageHeight: '13in', render:'download', filename: '{{ student.family_name }}-0000{{ student.pk }}-record'});"><i
+                                    class="fa fa-file-pdf-o" style="margin-right: 10px;"></i>
+                                PDF</a>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
