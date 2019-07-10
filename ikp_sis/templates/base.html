@@ -18,6 +18,7 @@
     <link href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/jquery.dataTables.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/buttons.dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sticky-footer.css' %}">
 
 
 </head>
@@ -55,9 +56,12 @@
         {% block content %} {% endblock %}
     </main>
 
-    <footer class="container" style="margin-top: 3em; margin-bottom: 3em;">
-        &copy; 2019 Philippine Island Kids International Foundation Database. Developed by <a
-            href="https://marcreyes.ph/">Marc Anthony Reyes</a>.
+    <footer class="footer">
+        <div class="container">
+            <span class="pull-left text-muted">&copy; 2019 Philippine Island Kids International Foundation, Inc.</span>
+            <span class="pull-right text-muted">Developed by <a href="https://marcreyes.ph/?utm_source=pikifi-db"
+                    target="new">Marc Anthony Reyes</a>.</span>
+        </div>
     </footer>
 
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
