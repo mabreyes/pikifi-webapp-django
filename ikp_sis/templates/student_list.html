@@ -28,11 +28,11 @@
         <i class="fa fa-user-plus" style='margin-right: 20px;'></i>Add New Student</a>
     {% else %}
     <h1>Welcome to Philippine Island Kids International Foundation, Inc. Database</h1>
-    <p class="lead">Sign in to access contents of the database.</p>
+    <p class="lead">Sign in or create an account to access contents of the database.</p>
     <a class="btn btn-lg btn-success" href="/accounts/login/" role="button" style="margin-right: 10px;">
         <i class="fa fa-user" style="margin-right: 20px;"></i>Sign In</a>
     <a class="btn btn-lg btn-warning" href="/accounts/signup/" role="button">
-        <i class="fa fa-user-plus" style=' margin-right: 20px;'></i>Sign Up</a>
+        <i class="fa fa-user-plus" style=' margin-right: 20px;'></i>Create Account</a>
     {% endif %}
 </div>
 {% if user.is_authenticated %}

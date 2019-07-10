@@ -2,10 +2,53 @@
 {% block title %}Select an Account Type{% endblock %}
 
 {% block content %}
-<h2>Sign Up for an Account</h2>
-<p class="lead">Select below the type of account you want to create.</p>
-<a href="{% url 'viewer_signup' %}" class="btn btn-primary btn-lg" role="button" style="margin-right: 10px;"><i
-        class="fa fa-eye" style="margin-right: 20px;"></i> Viewer</a>
-<a href="{% url 'editor_signup' %}" class="btn btn-warning btn-lg" role="button" style="margin-right: 10px;"><i
-        class="fa fa-edit" style="margin-right: 20px;"></i> Editor</a>
+<div class="row">
+        <div class="col-sm-6">
+                <h2>Sign Up for an Account</h2>
+                <p class="lead">Select below the type of account you want to create.</p>
+                <a href="{% url 'viewer_signup' %}" class="btn btn-primary btn-lg" role="button"
+                        style="margin-right: 10px;"><i class="fa fa-eye" style="margin-right: 20px;"></i> Viewer</a>
+                <a href="{% url 'editor_signup' %}" class="btn btn-warning btn-lg" role="button"
+                        style="margin-right: 10px;"><i class="fa fa-edit" style="margin-right: 20px;"></i> Editor</a>
+        </div>
+        <div class="col-sm-6">
+                <h2>What's the difference?</h2>
+                <p class="lead">Editor and viewer accounts are specifically made for security. Below are the differences
+                        between an editor and a viewer account.</p>
+                <table class="table">
+                        <thead>
+                                <tr>
+                                        <th scope="col">Feature</th>
+                                        <th scope="col" style="text-align: center;"><i class="fa fa-eye"></i> Viewer
+                                        </th>
+                                        <th scope="col" style="text-align: center;"><i class="fa fa-edit"></i> Editor
+                                        </th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                        <th scope="row">Adding new students</th>
+                                        <td>&#10004;</td>
+                                        <td>&#10004;</td>
+                                </tr>
+                                <tr>
+                                        <th scope="row">Updating student information</th>
+                                        <td>&#10060;</td>
+                                        <td>&#10004;</td>
+                                </tr>
+                                <tr>
+                                        <th scope="row">Deleting student record</th>
+                                        <td>&#10060;</td>
+                                        <td>&#10004;</td>
+                                </tr>
+                                <tr>
+                                        <th scope="row">Export records (copy rows, download as Excel file (.xlsx),
+                                                download as PDF file (.pdf), print visible rows)</th>
+                                        <td>&#10004;</td>
+                                        <td>&#10004;</td>
+                                </tr>
+                        </tbody>
+                </table>
+        </div>
+</div>
 {% endblock %}
