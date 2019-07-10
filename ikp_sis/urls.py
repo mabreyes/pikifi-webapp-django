@@ -25,5 +25,5 @@ urlpatterns = [
          views.signout_prompt, name='signout'),
 ]
 
-handler404 = 'view.handler404'
-handler500 = 'view.handler500'
+handler404 = 'ikp_sis.views.handler404'
+handler500 = 'ikp_sis.views.handler500'
