@@ -13,8 +13,6 @@ from django.contrib.auth.forms import PasswordChangeForm
 from .forms import ProfileForm
 from .models import StudentInfo
 
-# This is a random text added to production.
-
 
 def handler404(request, exception, template_name="404.html"):
     response = render_to_response("404.html")
