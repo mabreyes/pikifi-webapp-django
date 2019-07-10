@@ -37,7 +37,6 @@ def student_detail(request, pk):
     return render(request, 'student_info.html', {'student': student})
 
 
-# @login_required(login_url='/accounts/login/')
 def student_new(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
@@ -55,7 +54,6 @@ def student_new(request):
     return render(request, 'student_edit.html', {'form': form})
 
 
-# @login_required(login_url='/admin/login/?next=/')
 @editor_required
 def student_edit(request, pk):
     student = get_object_or_404(StudentInfo, pk=pk)
@@ -74,7 +72,6 @@ def student_edit(request, pk):
     return render(request, 'student_edit.html', {'form': form})
 
 
-# @login_required(login_url='/accounts/login')
 @editor_required
 def student_delete(request, pk):
     student = get_object_or_404(StudentInfo, pk=pk)
@@ -98,7 +95,7 @@ def change_password(request):
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
-            update_session_auth_hash(request, user)  # Important!
+            update_session_auth_hash(request, user)
             messages.success(
                 request, 'Your password was successfully updated!')
             return redirect('password_changed')

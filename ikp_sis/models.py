@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from multiselectfield import MultiSelectField
 
 from django.contrib.auth.models import AbstractUser
 
@@ -381,8 +382,13 @@ CIVIL_STATUS_CHOICES = [
 ]
 
 CHILD_STATUS_CHOICES = [
-    ('None', 'Select Status'),
     ('Orphaned', 'Orphaned'),
+    ('Neglected', 'Neglected'),
+    ('Abandoned', 'Abandoned'),
+    ('Abused (Physically/Sexually)', 'Abused (Physically/Sexually)'),
+    ('Trafficked', 'Trafficked'),
+    ('Child in Conflict with the Law (CICL)',
+     'Child in Conflict with the Law (CICL)'),
 ]
 
 
@@ -393,6 +399,7 @@ class StudentInfo(models.Model):
         'ikp_sis.DatabaseUser', on_delete=models.CASCADE)
     family_name = models.CharField(max_length=100)
     first_name = models.CharField(max_length=100)
+    middle_name = models.CharField(max_length=100)
     gender = models.CharField(
         max_length=100, choices=GENDER_CHOICES, default='None')
     birthdate = models.DateField(default=timezone.now)
@@ -402,8 +409,8 @@ class StudentInfo(models.Model):
     parent_guardian_2 = models.CharField(max_length=100)
     parent_civil_status = models.CharField(
         max_length=100, choices=CIVIL_STATUS_CHOICES, default='None')
-    child_status = models.CharField(
-        max_length=100, default='None', choices=CHILD_STATUS_CHOICES)
+    child_status = MultiSelectField(
+        choices=CHILD_STATUS_CHOICES, max_length=100)
     level = models.CharField(
         max_length=100, default='None', choices=LEVEL_CHOICES)
     section = models.CharField(max_length=100)

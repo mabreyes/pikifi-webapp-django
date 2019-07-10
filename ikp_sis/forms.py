@@ -10,6 +10,7 @@ class ProfileForm(forms.ModelForm):
         fields = ['profile_image',
                   'family_name',
                   'first_name',
+                  'middle_name',
                   'gender',
                   'birthdate',
                   'age',
@@ -28,7 +29,6 @@ class ProfileForm(forms.ModelForm):
                   'student_bio',
                   'educational_status']
         widgets = {'gender': forms.Select,
-                   'child_status': forms.Select,
                    'level': forms.Select,
                    'course': forms.Select,
                    'birthdate': forms.SelectDateWidget(years=range(1995, 2100)),
