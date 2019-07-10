@@ -40,9 +40,9 @@
                         style="background-color: #1e7e34; border-color: #1c7430;" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         {% if user.is_editor %}
-                        Signed in as <i class="fa fa-edit"></i> <strong>{{ user }}</strong>
+                        Signed in as <i class="fa fa-edit" style="margin-left: 5px;"></i> <strong>{{ user }}</strong>
                         {% elif user.is_viewer %}
-                        Signed in as <i class="fa fa-eye"></i> <strong>{{ user }}</strong>
+                        Signed in as <i class="fa fa-eye" style="margin-left: 5px;"></i> <strong>{{ user }}</strong>
                         {% else %}
                         Signed in as <strong>{{ user }}</strong>
                         {% endif %}
@@ -55,10 +55,10 @@
                     </div>
                     {% url 'student_detail' pk=student.pk as the_url %}
                     {% if request.get_full_path == the_url %}
-                    <div class="btn-group">
-                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
+                    <div class="btn-group" style="margin-left: 10px;">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Export As
+                            <i class="fa fa-download" style="margin-right: 5px;"></i> Export Record As
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.print();"><i class="fa fa-print"
