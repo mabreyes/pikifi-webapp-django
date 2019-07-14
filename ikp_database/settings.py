@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'multiselectfield',
     'storages',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
