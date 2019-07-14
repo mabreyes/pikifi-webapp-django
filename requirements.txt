@@ -9,4 +9,3 @@ django-crispy-forms
 django-multiselectfield
 boto3
 django-storages
-sorl-thumbnail
