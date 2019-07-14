@@ -1,8 +1,13 @@
 from django.db import models
 from django.utils import timezone
 from multiselectfield import MultiSelectField
+from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 from django.contrib.auth.models import AbstractUser
+
+import sys
 
 
 class DatabaseUser(AbstractUser):
@@ -395,6 +400,22 @@ CHILD_STATUS_CHOICES = [
 class StudentInfo(models.Model):
     profile_image = models.ImageField(
         upload_to='uploads/avatar/', default='default_none.png')
+
+    def save(self, *args, **kwargs):
+        if self.profile_image:
+            self.profile_image = self.compressImage(self.profile_image)
+        super(StudentInfo, self).save(*args, **kwargs)
+
+    def compressImage(self, profile_image):
+        imageTemproary = Image.open(profile_image)
+        outputIoStream = BytesIO()
+        imageTemproaryResized = imageTemproary.resize((300, 300))
+        imageTemproary.save(outputIoStream, format='JPEG', quality=50)
+        outputIoStream.seek(0)
+        profile_image = InMemoryUploadedFile(outputIoStream, 'ImageField', "%s.jpg" % profile_image.name.split('.')[
+                                             0], 'image/jpeg', sys.getsizeof(outputIoStream), None)
+        return profile_image
+
     author = models.ForeignKey(
         'ikp_sis.DatabaseUser', on_delete=models.CASCADE)
     family_name = models.CharField(max_length=100)
