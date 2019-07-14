@@ -407,10 +407,10 @@ class StudentInfo(models.Model):
         super(StudentInfo, self).save(*args, **kwargs)
 
     def compressImage(self, profile_image):
-        imageTemproary = Image.open(profile_image)
+        imageTemporary = Image.open(profile_image).convert('RGB')
         outputIoStream = BytesIO()
-        imageTemproaryResized = imageTemproary.resize((300, 300))
-        imageTemproary.save(outputIoStream, format='JPEG', quality=10)
+        imageTemporaryResized = imageTemporary.resize((300, 300))
+        imageTemporary.save(outputIoStream, format='JPEG', quality=20)
         outputIoStream.seek(0)
         profile_image = InMemoryUploadedFile(outputIoStream, 'ImageField', "%s.jpg" % profile_image.name.split('.')[
                                              0], 'image/jpeg', sys.getsizeof(outputIoStream), None)
