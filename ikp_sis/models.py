@@ -410,7 +410,7 @@ class StudentInfo(models.Model):
         imageTemproary = Image.open(profile_image)
         outputIoStream = BytesIO()
         imageTemproaryResized = imageTemproary.resize((300, 300))
-        imageTemproary.save(outputIoStream, format='JPEG', quality=50)
+        imageTemproary.save(outputIoStream, format='JPEG', quality=10)
         outputIoStream.seek(0)
         profile_image = InMemoryUploadedFile(outputIoStream, 'ImageField', "%s.jpg" % profile_image.name.split('.')[
                                              0], 'image/jpeg', sys.getsizeof(outputIoStream), None)
