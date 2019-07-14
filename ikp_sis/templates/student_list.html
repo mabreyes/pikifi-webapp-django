@@ -93,7 +93,7 @@
         {% for student in students %}
         <tr>
             <td>
-                <img src="/media/{{ student.profile_image }}" width="50" height="50" style="border-radius: .3rem"
+                <img src="{{ student.profile_image.url }}" width="50" height="50" style="border-radius: .3rem"
                     alt="{{ student.family_name }}, {{ student.first_name }}">
             </td>
             <td style="font-weight: bold;">{{ student.family_name }}, {{ student.first_name }}</td>

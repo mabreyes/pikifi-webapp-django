@@ -394,7 +394,7 @@ CHILD_STATUS_CHOICES = [
 
 class StudentInfo(models.Model):
     profile_image = models.ImageField(
-        upload_to='uploads/%Y/%m/%d/', default='default_none.png')
+        upload_to='uploads/avatar/', default='default_none.png')
     author = models.ForeignKey(
         'ikp_sis.DatabaseUser', on_delete=models.CASCADE)
     family_name = models.CharField(max_length=100)
