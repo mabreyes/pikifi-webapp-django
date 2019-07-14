@@ -25,10 +25,25 @@ LOGIN_REDIRECT_URL = '/'
 SECRET_KEY = '+=ci=p31gb_3584!=tix@6+)g-52yem)ydk7=dhb+c72hd#bgo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['pikifi-dev.herokuapp.com', 'marcx', 'localhost', '127.0.0.1']
 
+
+AWS_ACCESS_KEY_ID = 'AKIAYMJRGPE6KB7YVCHX'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'pikifi-db-static'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+
+DEFAULT_FILE_STORAGE = 'ikp_database.storage_backends.MediaStorage'
+
+AWS_LOCATION = 'static'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 # Application definition
 
@@ -42,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'multiselectfield',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +145,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
@@ -137,4 +153,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
