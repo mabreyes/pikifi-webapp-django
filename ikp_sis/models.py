@@ -122,7 +122,7 @@ PROMOTION_CHOICES = [
 ]
 
 COURSE_CHOICES = [
-    ('Select Course', 'Select Course'),
+    ('None', 'Select Course'),
     ('Humanities', (
         ('Bachelor of Arts in History (AB History)',
          'Bachelor of Arts in History (AB History)'),
