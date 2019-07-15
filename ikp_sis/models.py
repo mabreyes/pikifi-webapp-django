@@ -92,8 +92,8 @@ PROMOTION_CHOICES = [
     )),
     ('Pre-School Promotions', (
         ('Promoted to Kindergarten', 'Promoted to Kindergarten'),
-        ('Promoted to Kindergarten A', 'Promoted to Kindergarten B'),
-        ('Promoted to Kindergarten A', 'Promoted to Kindergarten B'),
+        ('Promoted to Kindergarten A', 'Promoted to Kindergarten A'),
+        ('Promoted to Kindergarten B', 'Promoted to Kindergarten B'),
     )),
     ('Grade School Promotions', (
         ('Promoted to Grade 1', 'Promoted to Grade 1'),
