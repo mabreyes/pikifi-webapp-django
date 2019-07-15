@@ -4,9 +4,22 @@
 {% block content %}
 <h2>You've successfully signed out.</h2>
 <p>Return home or sign back in.</p>
-<a href="/" class="btn btn-success btn-lg" role="button" style="margin-right: 10px;"><i class="fa fa-undo"
-        style="margin-right: 20px;"></i> Return
-    to Dashboard</a>
-<a href="/accounts/login/" class="btn btn-secondary btn-lg" role="button"><i class="fa fa-user"
-        style="margin-right: 20px;"></i> Sign In</a>
+<a href="/" class="btn btn-success btn-lg return-btn" role="button" style="margin-right: 10px;"><i class="fa fa-undo"
+                style="margin-right: 20px;"></i> Return Home</a>
+<a href="/accounts/login/" class="btn btn-secondary btn-lg signin-btn" role="button"><i class="fa fa-user"
+                style="margin-right: 20px;"></i> Sign Back In</a>
+<style>
+        @media only screen and (max-width: 1000px) {
+                .return-btn {
+                        width: 100% !important;
+                        margin-left: 0px !important;
+                        margin-bottom: 0.5rem !important;
+                }
+
+                .signin-btn {
+                        width: 100% !important;
+                        margin: 0px !important;
+                }
+        }
+</style>
 {% endblock %}

@@ -29,10 +29,24 @@
     {% else %}
     <h1>Welcome to PIKIFI Database</h1>
     <p class="lead">Sign in or create an account to access contents of the database.</p>
-    <a class="btn btn-lg btn-success" href="/accounts/login/" role="button" style="margin-right: 10px;">
+    <a class="btn btn-lg btn-success sign-in" href="/accounts/login/" role="button" style="margin-right: 10px;">
         <i class="fa fa-user" style="margin-right: 20px;"></i>Sign In</a>
-    <a class="btn btn-lg btn-warning" href="/accounts/signup/" role="button">
+    <a class="btn btn-lg btn-warning create-account" href="/accounts/signup/" role="button">
         <i class="fa fa-user-plus" style=' margin-right: 20px;'></i>Create Account</a>
+    <style>
+        @media only screen and (max-width: 1000px) {
+            .sign-in {
+                width: 100% !important;
+                margin-left: 0px !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .create-account {
+                width: 100% !important;
+                margin: 0px !important;
+            }
+        }
+    </style>
     {% endif %}
 </div>
 {% if user.is_authenticated %}

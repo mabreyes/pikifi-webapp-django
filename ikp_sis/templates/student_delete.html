@@ -7,10 +7,24 @@
         Should you want the record back, you would have to add the record manually.</p>
     <form method="POST" action="">
         {% csrf_token %}
-        <a class="btn btn-lg btn-secondary" href="/" role="button" style="margin-right: 10px;">
+        <a class="btn btn-lg btn-secondary cancel-delete-btn" href="/" role="button" style="margin-right: 10px;">
             <i class="fa fa-undo" style='margin-right: 20px;'></i>Cancel</a>
-        <input class="btn btn-lg btn-danger" type="submit" value="Delete" />
+        <input class="btn btn-lg btn-danger delete-btn" type="submit" value="Delete" />
     </form>
+    <style>
+        @media only screen and (max-width: 1000px) {
+            .cancel-delete-btn {
+                width: 100% !important;
+                margin-left: 0px !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .delete-btn {
+                width: 100% !important;
+                margin: 0px !important;
+            }
+        }
+    </style>
     {% else %}
     <h1>You cannot delete this entry.</h1>
     <p class="lead">Sign in with an account that is provided with rights to delete this record.</p>

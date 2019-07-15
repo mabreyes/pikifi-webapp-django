@@ -6,12 +6,32 @@
         <div class="col-sm-6">
                 <h2>Sign Up for an Account</h2>
                 <p class="lead">Select below the type of account you want to create.</p>
-                <a href="{% url 'viewer_signup' %}" class="btn btn-primary btn-lg" role="button"
+                <a href="{% url 'viewer_signup' %}" class="btn btn-primary btn-lg viewer-create" role="button"
                         style="margin-right: 10px;"><i class="fa fa-eye" style="margin-right: 20px;"></i> Viewer</a>
-                <a href="{% url 'editor_signup' %}" class="btn btn-warning btn-lg" role="button"
+                <a href="{% url 'editor_signup' %}" class="btn btn-warning btn-lg editor-create" role="button"
                         style="margin-right: 10px;"><i class="fa fa-edit" style="margin-right: 20px;"></i> Editor</a>
+                <style>
+                        @media only screen and (max-width: 1000px) {
+                                .viewer-create {
+                                        width: 100% !important;
+                                        margin-left: 0px !important;
+                                        margin-bottom: 0.5rem !important;
+                                }
+
+                                .editor-create {
+                                        width: 100% !important;
+                                        margin: 0px !important;
+                                }
+                        }
+
+                        @media only screen and (max-width: 570px) {
+                                .separate {
+                                        margin-top: 2em;
+                                }
+                        }
+                </style>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 separate">
                 <h2>What's the difference?</h2>
                 <p class="lead">Editor and viewer accounts are specifically made for security. Below are the differences
                         between an editor and a viewer account.</p>

@@ -4,6 +4,14 @@
 {% block content %}
 <h2>Server error has occurred.</h2>
 <p>It's not you. It's us. We've been notified of this issue and is currently working to fix this.</p>
-<a href="{% url 'student_list' %}" class="btn btn-success btn-lg" role="button" style="margin-right: 10px;"><i
-                class="fa fa-undo" style="margin-right: 20px;"></i> Return to Dashboard</a>
+<a href="{% url 'student_list' %}" class="btn btn-success btn-lg return-home" role="button"
+    style="margin-right: 10px;"><i class="fa fa-undo" style="margin-right: 20px;"></i> Return to Dashboard</a>
+<style>
+    @media only screen and (max-width: 1000px) {
+        .return-home {
+            width: 100% !important;
+            margin-left: 0px !important;
+        }
+    }
+</style>
 {% endblock %}

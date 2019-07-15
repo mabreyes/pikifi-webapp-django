@@ -4,8 +4,28 @@
     <h1>Add/Update Student Info</h1>
     <p class="lead">Add the necessary details of the student below. If a field is not applicable, place
         <strong>"N/A"</strong>.</p>
-    <a class="btn btn-lg btn-secondary" href="/" role="button">
+    <a class="btn btn-lg btn-secondary cancel-btn" href="/" role="button">
         <i class="fa fa-undo" style='margin-right: 20px;'></i>Cancel</a>
+    <style>
+        @media only screen and (max-width: 570px) {
+            .cancel-btn {
+                width: 100% !important;
+            }
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .cancel-btn-form {
+                width: 100% !important;
+                margin-left: 0px !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .save-btn {
+                width: 100% !important;
+                margin: 0px !important;
+            }
+        }
+    </style>
 </div>
 <form method="POST" enctype="multipart/form-data">
     {{ form.non_field_errors }}
@@ -163,9 +183,9 @@
 
     <div class="form-group row">
         <div class="col-sm-4">
-            <a class="btn btn-lg btn-secondary" href="/" role="button" style="margin-right: 10px;">
+            <a class="btn btn-lg btn-secondary cancel-btn-form" href="/" role="button" style="margin-right: 10px;">
                 <i class="fa fa-undo" style='margin-right: 20px;'></i>Cancel</a>
-            <input class="btn btn-lg btn-primary" type="submit" value="Save Record">
+            <input class="btn btn-lg btn-primary save-btn" type="submit" value="Save Record">
         </div>
     </div>
 
