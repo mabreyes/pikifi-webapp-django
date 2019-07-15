@@ -20,14 +20,14 @@
 <div class="jumbotron">
     {% if user.is_authenticated %}
     <h1>Student Master List</h1>
-    <p class="lead">View student records from the inception of Phil. Island Kids International Foundation, Inc.
+    <p class="lead">View student records from the inception of PIKIFI
         Database
         up to present. To add a new
         student, click the button below.</p>
     <a class="btn btn-lg btn-success" href="/student/new" role="button">
         <i class="fa fa-user-plus" style='margin-right: 20px;'></i>Add New Student</a>
     {% else %}
-    <h1>Welcome to Phil. Island Kids International Foundation, Inc. Database</h1>
+    <h1>Welcome to PIKIFI Database</h1>
     <p class="lead">Sign in or create an account to access contents of the database.</p>
     <a class="btn btn-lg btn-success" href="/accounts/login/" role="button" style="margin-right: 10px;">
         <i class="fa fa-user" style="margin-right: 20px;"></i>Sign In</a>
@@ -36,7 +36,7 @@
     {% endif %}
 </div>
 {% if user.is_authenticated %}
-<table class="table table-striped" id="myTable" cellspacing="0" width="100%">
+<table class="table table-striped table-responsive table-hover" id="myTable" cellspacing="0" width="100%">
     <style>
         .myTable_filterWrapper {
             margin-bottom: 0.5em;
@@ -60,6 +60,18 @@
             opacity: 0.5;
             text-decoration: none;
             pointer-events: none;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .dt-buttons button {
+                width: 100% !important;
+                margin-bottom: 0.5rem;
+            }
+
+            #myTable_filterWrapper select {
+                width: 100% !important;
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
     <thead>

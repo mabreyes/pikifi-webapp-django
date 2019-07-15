@@ -1,10 +1,10 @@
-# About Phil. Island Kids International Foundation, Inc.
+# About PIKIFI
 
-Phil. Island Kids International Foundation, Inc. is an international foundation and a subsidiary of Island Kids based in Switzerland. The organization aims to help out-of-school youth, juvenile delinquents, abandoned, orphaned, and abused children, to start anew by providing educational and livelihood assistance. 
+PIKIFI is an international foundation and a subsidiary of Island Kids based in Switzerland. The organization aims to help out-of-school youth, juvenile delinquents, abandoned, orphaned, and abused children, to start anew by providing educational and livelihood assistance. 
 
 ## About ```pikifi-database```
 
-This repository contains the source codes of the web application for ```pikifi-database```, a student database for Phil. Island Kids International Foundation, Inc. This repository is under MIT license. Please read the LICENSE file for more details.
+This repository contains the source codes of the web application for ```pikifi-database```, a student database for PIKIFI This repository is under MIT license. Please read the LICENSE file for more details.
 
 ## Usage
 
@@ -21,6 +21,6 @@ $ python manage.py runserver
 
 ## Support or Contact
 
-If you need our help or just something you need to ask about us, feel free to e-mail the developer, [Marc Anthony Reyes](mailto:hello@marcreyes.ph?subject=pikifi-database), and he will be glad to respond to your request/s.
+If you need our help or just something you need to ask about us, feel free to e-mail the developer, [Marc Reyes](mailto:hello@marcreyes.ph?subject=pikifi-database), and he will be glad to respond to your request/s.
 
-&copy; 2019 Phil. Island Kids International Foundation, Inc. All Rights Reserved
+&copy; 2019 PIKIFI All Rights Reserved
