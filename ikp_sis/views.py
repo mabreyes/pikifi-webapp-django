@@ -78,7 +78,7 @@ def student_delete(request, pk):
 
     author = student.author
 
-    if request.method == "POST" and request.user.is_authenticated and request.user == author:
+    if request.method == "POST" and request.user.is_editor:
         student.delete()
         messages.success(request, "Student successfully deleted!")
         return HttpResponseRedirect("/")
