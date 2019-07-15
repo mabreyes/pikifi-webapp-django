@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['pikifi.marcreyes.ph',
                  'localhost',
                  '127.0.0.1']
 
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
 
 AWS_ACCESS_KEY_ID = 'AKIAYMJRGPE6BHLCXQFC'
 AWS_SECRET_ACCESS_KEY = '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'
