@@ -107,7 +107,7 @@
             <th>Section</th>
             <th>Course</th>
             <th>Promotional Status</th>
-            <th class="notexport">Has Sponsor</th>
+            <th class="notexport">Sponsor's Name</th>
             <th>Date Admitted</th>
             <th>Sponsor's Name</th>
             <th class="notexport">View</th>
@@ -139,9 +139,9 @@
             <td>{{ student.course }}</td>
             <td>{{ student.educational_status }}</td>
             {% if student.sponsors_name != 'N/A' %}
-            <td>Yes</td>
+            <td>{{ student.sponsors_name }}</td>
             {% else %}
-            <td>No</td>
+            <td>None</td>
             {% endif %}
             <td>{{ student.date_ikp_enrollment }}</td>
             <td>{{ student.sponsors_name }}</td>
