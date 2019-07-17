@@ -4,17 +4,13 @@
 <div class="alert alert-primary" role="alert">
     You are an <i class="fa fa-user"></i> <strong>Admin</strong>.<a class="btn btn-md btn-link alert-link float-right"
         style="margin: 0; padding: 0;" href="/security/admin" role="button">Manage Site</a>
-</div>
-{% elif user.is_authenticated and user.is_editor %}
-<div class="alert alert-primary" role="alert">
+    {% elif user.is_authenticated and user.is_editor %}
     You are signed up for an <i class="fa fa-edit"></i> <strong>Editor</strong> account. As an <i
         class="fa fa-edit"></i> <strong>Editor</strong>,
     you can
     <strong>add</strong>, <strong>update</strong>, <strong>remove</strong>, and <strong>print</strong> students from the
     record.
-</div>
-{% else %}
-<div class="alert alert-primary" role="alert">
+    {% else %}
     You are signed up for a <i class="fa fa-eye"></i> <strong>Viewer</strong> account. As a <i class="fa fa-eye"></i>
     <strong>Viewer</strong>, you are only limited to <strong>adding</strong> and <strong>printing</strong> students from
     the
