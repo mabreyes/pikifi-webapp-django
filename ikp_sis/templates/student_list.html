@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 {% if user.is_authenticated %}
 {% if user.is_authenticated and user.is_staff %}
-<div class="alert alert-danger" role="alert">
-    You are an <i class="fa fa-user"></i> <strong>Admin</strong>.<a class="btn btn-md btn-link float-right"
+<div class="alert alert-primary" role="alert">
+    You are an <i class="fa fa-user"></i> <strong>Admin</strong>.<a class="btn btn-md btn-link alert-link float-right"
         style="margin: 0; padding: 0;" href="/security/admin" role="button">Manage Site</a>
 </div>
 {% elif user.is_authenticated and user.is_editor %}
