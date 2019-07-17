@@ -69,7 +69,7 @@
                         {% if user.is_staff %}
                         <a class="dropdown-item" href="/security/admin">Manage Site</a>
                         {% endif %}
-                        <a class="dropdown-item" href="{% url 'change_password' %}">Settings</a>
+                        <a class="dropdown-item" href="{% url 'change_password' %}">Account Settings</a>
                         <a class="dropdown-item" href="/accounts/logout/?next={% url 'signout' %}">Sign Out</a>
                         {% endif %}
                     </div>
