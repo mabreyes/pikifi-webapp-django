@@ -27,8 +27,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
         <div class="container">
             <a class="navbar-brand" href="/">PIKIFI Database</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -36,9 +35,7 @@
                 </ul>
                 {% if user.is_authenticated %}
                 <div class="dropdown show">
-                    <a class="btn btn-primary btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        style="background-color: #1e7e34; border-color: #1c7430;" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="btn btn-primary btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" style="background-color: #1e7e34; border-color: #1c7430;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {% if user.is_staff %}
                         Signed in as <i class="fa fa-user" style="margin-left: 5px;"></i> <strong>{{ user }}</strong>
                         {% elif user.is_editor %}
@@ -57,7 +54,6 @@
                                 margin-top: 0.3rem;
                                 margin-bottom: 0.3rem;
                             }
-
                             .btn-group {
                                 margin: 0px !important;
                                 width: 100%;
@@ -67,17 +63,13 @@
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {% if user.is_staff %}
-                        <a class="dropdown-item" href="/security/admin">Manage Site</a>
-                        {% endif %}
+                        <a class="dropdown-item" href="/security/admin">Manage Site</a> {% endif %}
                         <a class="dropdown-item" href="{% url 'change_password' %}">Account Settings</a>
-                        <a class="dropdown-item" href="/accounts/logout/?next={% url 'signout' %}">Sign Out</a>
-                        {% endif %}
+                        <a class="dropdown-item" href="/accounts/logout/?next={% url 'signout' %}">Sign Out</a> {% endif %}
                     </div>
-                    {% url 'student_detail' pk=student.pk as the_url %}
-                    {% if request.get_full_path == the_url %}
+                    {% url 'student_detail' pk=student.pk as the_url %} {% if request.get_full_path == the_url %}
                     <div class="btn-group" style="margin-left: 10px;">
-                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-download" style="margin-right: 5px;"></i> Export Record As
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -102,7 +94,7 @@
 
     <footer class="footer">
         <div class="container">
-            <span class="pull-left text-muted">&copy; 2019 PIKIFI</span>
+            <span class="pull-left text-muted">&copy; {% now "Y" %} PIKIFI</span>
             <span class="pull-right text-muted">Developed by <a href="https://marcreyes.ph/?utm_source=pikifi-db"
                     target="new">Marc Reyes</a>.</span>
         </div>
@@ -123,7 +115,7 @@
     <script src="{% static 'js/buttons.flash.min.js' %}"></script>
     <script src="{% static 'js/xepOnline.jqPlugin.js' %}"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             let now = new Date();
 
             let options = {
@@ -148,128 +140,113 @@
                     searchPlaceholder: "Search Records"
                 },
                 filterDropDown: {
-                    columns: [
-                        {
-                            idx: 4
-                        },
-                        {
-                            idx: 13
-                        },
-                        {
-                            idx: 16
-                        },
-                        {
-                            idx: 17
-                        }
-                    ],
+                    columns: [{
+                        idx: 4
+                    }, {
+                        idx: 13
+                    }, {
+                        idx: 16
+                    }, {
+                        idx: 17
+                    }],
                     bootstrap: true
                 },
-                'columnDefs': [
-                    {
-                        'targets': [0, 20, 21, 22],
-                        'searchable': false,
-                        'orderable': false,
-                        'visible': true
-                    },
-                    {
-                        'targets': [2, 3, 7, 8, 9, 10, 11, 12, 14, 15, 19],
-                        'visible': false
-                    },
-                ],
+                'columnDefs': [{
+                    'targets': [0, 20, 21, 22],
+                    'searchable': false,
+                    'orderable': false,
+                    'visible': true
+                }, {
+                    'targets': [2, 3, 7, 8, 9, 10, 11, 12, 14, 15, 19],
+                    'visible': false
+                }, ],
                 "bLengthChange": false,
                 "iDisplayLength": 5,
                 dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extend: 'colvis',
-                        text: '<i class="fa fa-eye" style="margin-right: 10px;"></i> Columns',
-                        className: 'btn btn-primary',
-                        init: function (api, node, config) {
-                            $(node).removeClass('dt-button')
-                            $(node).removeClass('buttons-collection')
-                            $(node).removeClass('buttons-colvis')
-                        }
-                    },
-                    {
-                        extend: 'copy',
-                        text: '<i class="fa fa-copy" style="margin-right: 10px;"></i> Copy Rows',
-                        className: 'btn btn-warning',
-                        init: function (api, node, config) {
-                            $(node).removeClass('dt-button')
-                            $(node).removeClass('buttons-copy')
-                            $(node).removeClass('buttons-html5')
-                        }
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        title: 'PIKIFI',
-                        text: '<i class="fa fa-file-excel-o" style="margin-right: 10px;"></i> Export to Excel (.xlsx)',
-                        messageTop: 'Report Generated on ' + generatedDate,
-                        exportOptions: {
-                            columns: ':not(.notexport)'
-                        },
-                        className: 'btn btn-success',
-                        init: function (api, node, config) {
-                            $(node).removeClass('dt-button')
-                            $(node).removeClass('buttons-excel')
-                            $(node).removeClass('buttons-html5')
-                        }
-
-                    },
-                    {
-                        extend: 'pdfHtml5',
-                        title: 'PIKIFI',
-                        messageTop: 'Report Generated on ' + generatedDate,
-                        text: '<i class="fa fa-file-pdf-o" style="margin-right: 10px;"></i> Export to PDF (.pdf)',
-                        orientation: 'landscape',
-                        pageSize: 'LEGAL',
-                        exportOptions: {
-                            columns: ':not(.notexport)'
-                        },
-                        className: 'btn btn-danger',
-                        init: function (api, node, config) {
-                            $(node).removeClass('dt-button')
-                            $(node).removeClass('buttons-pdf')
-                            $(node).removeClass('buttons-html5')
-                        }
-                    },
-                    {
-                        extend: "print",
-                        title: 'PIKIFI',
-                        text: '<i class="fa fa-print" style="margin-right: 10px;"></i> Print Visible',
-                        messageTop: 'Report Generated on ' + generatedDate,
-                        exportOptions: {
-                            columns: ':not(.notexport)'
-                        },
-                        customize: function (win) {
-
-                            var last = null;
-                            var current = null;
-                            var bod = [];
-
-                            var css = '@page { size: landscape; }',
-                                head = win.document.head || win.document.getElementsByTagName('head')[0],
-                                style = win.document.createElement('style');
-
-                            style.type = 'text/css';
-                            style.media = 'print';
-
-                            if (style.styleSheet) {
-                                style.styleSheet.cssText = css;
-                            }
-                            else {
-                                style.appendChild(win.document.createTextNode(css));
-                            }
-
-                            head.appendChild(style);
-                        },
-                        className: 'btn btn-info',
-                        init: function (api, node, config) {
-                            $(node).removeClass('dt-button')
-                            $(node).removeClass('buttons-print')
-                        }
+                buttons: [{
+                    extend: 'colvis',
+                    text: '<i class="fa fa-eye" style="margin-right: 10px;"></i> Columns',
+                    className: 'btn btn-primary',
+                    init: function(api, node, config) {
+                        $(node).removeClass('dt-button')
+                        $(node).removeClass('buttons-collection')
+                        $(node).removeClass('buttons-colvis')
                     }
-                ]
+                }, {
+                    extend: 'copy',
+                    text: '<i class="fa fa-copy" style="margin-right: 10px;"></i> Copy Rows',
+                    className: 'btn btn-warning',
+                    init: function(api, node, config) {
+                        $(node).removeClass('dt-button')
+                        $(node).removeClass('buttons-copy')
+                        $(node).removeClass('buttons-html5')
+                    }
+                }, {
+                    extend: 'excelHtml5',
+                    title: 'PIKIFI',
+                    text: '<i class="fa fa-file-excel-o" style="margin-right: 10px;"></i> Export to Excel (.xlsx)',
+                    messageTop: 'Report Generated on ' + generatedDate,
+                    exportOptions: {
+                        columns: ':not(.notexport)'
+                    },
+                    className: 'btn btn-success',
+                    init: function(api, node, config) {
+                        $(node).removeClass('dt-button')
+                        $(node).removeClass('buttons-excel')
+                        $(node).removeClass('buttons-html5')
+                    }
+
+                }, {
+                    extend: 'pdfHtml5',
+                    title: 'PIKIFI',
+                    messageTop: 'Report Generated on ' + generatedDate,
+                    text: '<i class="fa fa-file-pdf-o" style="margin-right: 10px;"></i> Export to PDF (.pdf)',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: ':not(.notexport)'
+                    },
+                    className: 'btn btn-danger',
+                    init: function(api, node, config) {
+                        $(node).removeClass('dt-button')
+                        $(node).removeClass('buttons-pdf')
+                        $(node).removeClass('buttons-html5')
+                    }
+                }, {
+                    extend: "print",
+                    title: 'PIKIFI',
+                    text: '<i class="fa fa-print" style="margin-right: 10px;"></i> Print Visible',
+                    messageTop: 'Report Generated on ' + generatedDate,
+                    exportOptions: {
+                        columns: ':not(.notexport)'
+                    },
+                    customize: function(win) {
+
+                        var last = null;
+                        var current = null;
+                        var bod = [];
+
+                        var css = '@page { size: landscape; }',
+                            head = win.document.head || win.document.getElementsByTagName('head')[0],
+                            style = win.document.createElement('style');
+
+                        style.type = 'text/css';
+                        style.media = 'print';
+
+                        if (style.styleSheet) {
+                            style.styleSheet.cssText = css;
+                        } else {
+                            style.appendChild(win.document.createTextNode(css));
+                        }
+
+                        head.appendChild(style);
+                    },
+                    className: 'btn btn-info',
+                    init: function(api, node, config) {
+                        $(node).removeClass('dt-button')
+                        $(node).removeClass('buttons-print')
+                    }
+                }]
             });
         });
     </script>
