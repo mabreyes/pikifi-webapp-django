@@ -29,6 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['pikifi.marcreyes.ph',
                  'pikifi-students.herokuapp.com',
+                 'pikifi-db.herokuapp.com',
                  'marcx',
                  'localhost',
                  '127.0.0.1']
