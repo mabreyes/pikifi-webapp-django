@@ -418,30 +418,30 @@ class StudentInfo(models.Model):
 
     author = models.ForeignKey(
         'ikp_sis.DatabaseUser', on_delete=models.CASCADE)
-    family_name = models.CharField(max_length=100)
-    first_name = models.CharField(max_length=100)
-    middle_name = models.CharField(max_length=100)
+    family_name = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=200)
+    middle_name = models.CharField(max_length=200)
     gender = models.CharField(
-        max_length=100, choices=GENDER_CHOICES, default='None')
+        max_length=200, choices=GENDER_CHOICES, default='None')
     birthdate = models.DateField(default=timezone.now)
-    age = models.CharField(max_length=100)
+    age = models.CharField(max_length=200)
     address = models.CharField(max_length=500)
-    parent_guardian_1 = models.CharField(max_length=100)
-    parent_guardian_2 = models.CharField(max_length=100)
+    parent_guardian_1 = models.CharField(max_length=200)
+    parent_guardian_2 = models.CharField(max_length=200)
     parent_civil_status = models.CharField(
-        max_length=100, choices=CIVIL_STATUS_CHOICES, default='None')
+        max_length=200, choices=CIVIL_STATUS_CHOICES, default='None')
     child_status = MultiSelectField(
-        choices=CHILD_STATUS_CHOICES, max_length=100)
+        choices=CHILD_STATUS_CHOICES, max_length=200)
     level = models.CharField(
-        max_length=100, default='None', choices=LEVEL_CHOICES)
-    section = models.CharField(max_length=100)
+        max_length=200, default='None', choices=LEVEL_CHOICES)
+    section = models.CharField(max_length=200)
     course = models.CharField(
-        max_length=100, default='None', choices=COURSE_CHOICES)
+        max_length=200, default='None', choices=COURSE_CHOICES)
     school_last_attended = models.CharField(max_length=200)
     school_current = models.CharField(max_length=200)
     date_ikp_enrollment = models.DateField(default=timezone.now)
-    sponsors_name = models.CharField(max_length=100)
+    sponsors_name = models.CharField(max_length=200)
     student_bio = models.TextField(max_length=1000)
-    educational_status = models.CharField(max_length=100,
+    educational_status = models.CharField(max_length=200,
                                           default='None', choices=PROMOTION_CHOICES)
     created_date = models.DateTimeField(default=timezone.now)

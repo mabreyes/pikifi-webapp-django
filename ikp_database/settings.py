@@ -27,17 +27,17 @@ SECRET_KEY = '+=ci=p31gb_3584!=tix@6+)g-52yem)ydk7=dhb+c72hd#bgo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['pikifi.marcreyes.ph',
-                 'pikifi-students.herokuapp.com',
+ALLOWED_HOSTS = ['pikifi.marcreyes.xyz',
+                 'pikifi-db.herokuapp.com',
                  'marcx',
                  'localhost',
                  '127.0.0.1']
 
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
-AWS_ACCESS_KEY_ID = 'AKIAYMJRGPE6BHLCXQFC'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'pikifi-db-static'
+AWS_ACCESS_KEY_ID = 'AKIAYMJRGPE6DJ2S6DV3'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'pikifi-heroku-static'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 AWS_S3_OBJECT_PARAMETERS = {
