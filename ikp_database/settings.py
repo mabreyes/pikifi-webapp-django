@@ -22,7 +22,7 @@ LOGIN_REDIRECT_URL = '/'
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+=ci=p31gb_3584!=tix@6+)g-52yem)ydk7=dhb+c72hd#bgo'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -35,9 +35,9 @@ ALLOWED_HOSTS = ['pikifi.marcreyes.xyz',
 
 SECURE_SSL_REDIRECT = False
 
-AWS_ACCESS_KEY_ID = 'AKIAYMJRGPE6DJ2S6DV3'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'pikifi-heroku-static'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 AWS_S3_OBJECT_PARAMETERS = {
