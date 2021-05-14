@@ -10,3 +10,4 @@ django-multiselectfield
 boto3
 django-storages
 django-cleanup
+django-cors-headers

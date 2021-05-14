@@ -33,6 +33,12 @@ ALLOWED_HOSTS = ['pikifi.marcreyes.xyz',
                  'localhost',
                  '127.0.0.1']
 
+# CORS_ALLOWED_ORIGINS = ['https://cdn-static-s3.marcreyes.xyz',
+#                         'https://cdn-static-s3.marcreyes.xyz.amazonaws.com',
+#                         'https://cdn-static-s3.marcreyes.xyz.s3-ap-southeast-1.amazonaws.com']
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 SECURE_SSL_REDIRECT = False
 
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
@@ -57,6 +63,7 @@ STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'ikp_sis.apps.IkpSisConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -71,7 +78,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -162,5 +169,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
