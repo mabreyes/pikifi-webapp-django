@@ -33,11 +33,15 @@ ALLOWED_HOSTS = ['pikifi.marcreyes.xyz',
                  'localhost',
                  '127.0.0.1']
 
-# CORS_ALLOWED_ORIGINS = ['https://cdn-static-s3.marcreyes.xyz',
-#                         'https://cdn-static-s3.marcreyes.xyz.amazonaws.com',
-#                         'https://cdn-static-s3.marcreyes.xyz.s3-ap-southeast-1.amazonaws.com']
+CORS_ALLOWED_ORIGINS = ['https://pikifi.marcreyes.xyz',
+                        'https://pikifi-db.herokuapp.com',
+                        'http://pikifi.marcreyes.xyz',
+                        'http://pikifi-db.herokuapp.com',
+                        'http://marcx',
+                        'http://localhost:8000',
+                        'http://127.0.0.1:8000']
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 SECURE_SSL_REDIRECT = False
 
