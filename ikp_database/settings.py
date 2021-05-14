@@ -60,9 +60,11 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 DEFAULT_FILE_STORAGE = 'ikp_database.storage_backends.MediaStorage'
 
-AWS_LOCATION = 'static/pikifi_db'
+AWS_LOCATION_STATIC = 'static/pikifi_db'
+AWS_LOCATION_MEDIA = 'media/pikifi_db'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION_STATIC)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION_MEDIA)
 
 # Application definition
 
