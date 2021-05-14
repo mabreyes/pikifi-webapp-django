@@ -23,4 +23,4 @@ $ python manage.py runserver
 
 If you need our help or just something you need to ask about us, feel free to e-mail the developer, [Marc Reyes](mailto:hello@marcreyes.ph?subject=pikifi-database), and he will be glad to respond to your request/s.
 
-&copy; 2019 PIKIFI All Rights Reserved
+&copy; 2021 PIKIFI All Rights Reserved
