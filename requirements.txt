@@ -2,11 +2,8 @@ django
 gunicorn
 django-heroku
 dj-database-url
-pandas
-Pillow
 django-crispy-forms
 django-multiselectfield
 boto3
 django-storages
 django-cleanup
-django-cors-headers

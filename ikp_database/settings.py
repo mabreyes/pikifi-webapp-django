@@ -33,16 +33,6 @@ ALLOWED_HOSTS = ['pikifi.marcreyes.xyz',
                  'localhost',
                  '127.0.0.1']
 
-# CORS_ALLOWED_ORIGINS = ['https://pikifi.marcreyes.xyz',
-#                         'https://pikifi-db.herokuapp.com',
-#                         'http://pikifi.marcreyes.xyz',
-#                         'http://pikifi-db.herokuapp.com',
-#                         'http://marcx',
-#                         'http://localhost:8000',
-#                         'http://127.0.0.1:8000']
-
-CORS_ALLOW_ALL_ORIGINS = True
-
 SECURE_SSL_REDIRECT = False
 
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
@@ -69,7 +59,6 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION_MEDIA)
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
     'ikp_sis.apps.IkpSisConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -84,7 +73,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -118,12 +106,6 @@ WSGI_APPLICATION = 'ikp_database.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
@@ -167,10 +149,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
-# STATIC_URL = '/static/'
-
-MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
