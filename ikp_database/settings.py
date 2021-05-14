@@ -50,11 +50,9 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 DEFAULT_FILE_STORAGE = 'ikp_database.storage_backends.MediaStorage'
 
-AWS_LOCATION_STATIC = 'static/pikifi_db'
-AWS_LOCATION_MEDIA = 'media/pikifi_db'
+AWS_LOCATION = 'static/pikifi_db'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION_STATIC)
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION_MEDIA)
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 # Application definition
 
@@ -149,6 +147,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+
+MEDIA_URL = '/media/pikifi_db'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
