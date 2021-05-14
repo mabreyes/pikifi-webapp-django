@@ -1,5 +1,5 @@
 import pandas as pd
-from ikp_sis.models import StudentInfo
+from pikifi.models import StudentInfo
 from django.contrib.auth.models import DatabaseUser
 
 

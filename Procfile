@@ -1,1 +1,1 @@
-web: gunicorn ikp_database.wsgi --log-file -
+web: gunicorn base.wsgi --log-file -

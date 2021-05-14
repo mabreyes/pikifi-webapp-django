@@ -1,4 +1,4 @@
-"""ikp_database URL Configuration
+"""base URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -19,9 +19,9 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 
-from ikp_sis import views
+from pikifi import views
 
 urlpatterns = [
     path('security/admin/', admin.site.urls),
-    path('', include('ikp_sis.urls'))
+    path('', include('pikifi.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
