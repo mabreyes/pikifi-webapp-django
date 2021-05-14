@@ -150,6 +150,6 @@ USE_TZ = True
 
 MEDIA_URL = '/media/pikifi_db/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/pikifi_db')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
