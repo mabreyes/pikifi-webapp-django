@@ -153,3 +153,5 @@ MEDIA_URL = '/media/pikifi_db/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/pikifi_db')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
