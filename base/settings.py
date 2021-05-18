@@ -25,7 +25,7 @@ LOGIN_REDIRECT_URL = '/'
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['pikifi.marcreyes.xyz',
                  'pikifi-db.herokuapp.com',
@@ -39,11 +39,10 @@ AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 
-# if DEBUG == True:
-#     AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-# else:
-#     AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME
-AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME
+if DEBUG == True:
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+else:
+    AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME
 
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
