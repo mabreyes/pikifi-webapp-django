@@ -417,7 +417,7 @@ class StudentInfo(models.Model):
         return profile_image
 
     author = models.ForeignKey(
-        'ikp_sis.DatabaseUser', on_delete=models.CASCADE)
+        'pikifi.DatabaseUser', on_delete=models.CASCADE)
     family_name = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
     middle_name = models.CharField(max_length=200)

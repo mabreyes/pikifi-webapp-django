@@ -12,14 +12,13 @@
                 width: 100% !important;
             }
         }
-
+        
         @media only screen and (max-width: 1000px) {
             .cancel-btn-form {
                 width: 100% !important;
                 margin-left: 0px !important;
                 margin-bottom: 0.5rem !important;
             }
-
             .save-btn {
                 width: 100% !important;
                 margin: 0px !important;
@@ -28,8 +27,7 @@
     </style>
 </div>
 <form method="POST" enctype="multipart/form-data">
-    {{ form.non_field_errors }}
-    {% csrf_token %}
+    {{ form.non_field_errors }} {% csrf_token %}
     <div class="card" style="margin-bottom: 30px;">
         <div class="card-body">
             <div class="form-group row">
@@ -43,12 +41,10 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-2">
-                    <img src="https://cdn-static-s3.marcreyes.xyz/media/{{ form.profile_image.value }}"
-                        height="170" width="170" style="border-radius: .3rem;" alt="">
+                    <img src="https://cdn-static-s3.marcreyes.xyz/media/{{ form.profile_image.value }}" height="170" width="170" style="border-radius: .3rem;" alt="">
                 </div>
                 <div class="col-sm-6">
-                    {{ form.profile_image.errors }}
-                    {{ form.profile_image }}
+                    {{ form.profile_image.errors }} {{ form.profile_image }}
                 </div>
             </div>
         </div>
@@ -63,8 +59,7 @@
                         <small class="text-muted">Basic Student Details</small>
                     </h2>
                 </div>
-                <label for="{{ form.family_name.id_for_label }}" class="col-sm-2 col-form-label">Complete Name</label>
-                {{ form.family_name.errors }}
+                <label for="{{ form.family_name.id_for_label }}" class="col-sm-2 col-form-label">Complete Name</label> {{ form.family_name.errors }}
                 <div class="col-sm-3">{{ form.family_name }}</div>
                 {{ form.first_name.errors }}
                 <div class="col-sm-4">{{ form.first_name }}</div>
@@ -139,8 +134,7 @@
             </div>
             <div class="form-group row">
                 {{ form.course.errors }}
-                <label for="{{ form.course.id_for_label }}" id="course_select_label"
-                    class="col-sm-2 col-form-label">Course</label>
+                <label for="{{ form.course.id_for_label }}" id="course_select_label" class="col-sm-2 col-form-label">Course</label>
                 <div class="col-sm-4" id="course_select_form">{{ form.course }}</div>
                 {{ form.educational_status.errors }}
                 <label for="{{ form.educational_status.id_for_label }}" class="col-sm-2 col-form-label">Educational
@@ -223,6 +217,10 @@
         var m = today.getMonth() - birthDate.getMonth();
         if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
             age = age - 1;
+        }
+
+        if (age < 0) {
+            age = 0
         }
 
         return age;
