@@ -1,4 +1,4 @@
-# About PIKIFI
+# pikifi-webapp-django
 
 PIKIFI is an international foundation and a subsidiary of Island Kids based in Switzerland. The organization aims to help out-of-school youth, juvenile delinquents, abandoned, orphaned, and abused children, to start anew by providing educational and livelihood assistance. 
 
@@ -22,5 +22,3 @@ $ python manage.py runserver
 ## Support or Contact
 
 If you need our help or just something you need to ask about us, feel free to e-mail the developer, [Marc Reyes](mailto:hello@marcreyes.ph?subject=pikifi-webapp-django), and he will be glad to respond to your request/s.
-
-&copy; 2021 PIKIFI All Rights Reserved
